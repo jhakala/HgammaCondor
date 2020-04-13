@@ -3,33 +3,66 @@ from os import listdir
 from os.path import isfile, join
 from pprint import pprint
 from ROOT import *
+from argparse import ArgumentParser
 
-if len(argv) != 5:
-  print "please supply four arguments to the macro: the input directory, the output filename, the magic number, and the queue number"
-  exit(1)
+parser = ArgumentParser()
+parser.add_argument("-i", dest = "inDirName",
+                    help = "input directory", required=True)
+parser.add_argument("-o", dest = "outputName",
+                    help = "output filename", required=True)
+parser.add_argument("-m", dest = "magicNumber",
+                    help = "magic number", required=True)
+parser.add_argument("-q", dest = "queueNumber",
+                    help = "queue number", required=True)
+parser.add_argument("-c", dest = "cluster",
+                    help = "cluster", required=True)
+args = parser.parse_args()
 
-inDirName = argv[1]
-outputName = argv[2]
-magicNumber = int(argv[3])
-queueNumber = int(argv[4])
+magicNumber = int(args.magicNumber)
+queueNumber = int(args.queueNumber)
 
 chain = TChain("ntuplizer/tree")
 inFiles = []
 
-from subprocess import check_output
-import shlex
-eoslist = check_output(shlex.split("xrdfs root://cmseos.fnal.gov ls %s" % inDirName)).splitlines()
+def lpcEosInputs(inDirName):
+  from subprocess import check_output
+  import shlex
+  eoslist = check_output(shlex.split("xrdfs root://cmseos.fnal.gov ls %s" % inDirName)).splitlines()
+  
+  print "doing round-robin inputs."
+  iFile = 0
+  for f in eoslist:
+    if (iFile+queueNumber) % magicNumber == 0:
+      inFiles.append("root://cmseos.fnal.gov//" + join(inDirName, f))
+      print "   > processing ", f
+    else:
+      print "   > skipping", f
+    iFile += 1
 
-print "doing round-robin inputs."
-iFile = 0
-for f in eoslist:
-  if (iFile+queueNumber) % magicNumber == 0:
-    inFiles.append("root://cmseos.fnal.gov//" + join(inDirName, f))
-    print "   > processing ", f
-  else:
-    print "   > skipping", f
-  iFile += 1
 
+def bruxIsilonInputs(inDirName):
+  isilonList = listdir(inDirName)
+  
+  print "doing round-robin inputs."
+  iFile = 0
+  for f in isilonList:
+    if (iFile+queueNumber) % magicNumber == 0:
+      if isfile(join(inDirName, f)):
+        inFiles.append(join(inDirName, f))
+        print "   > processing ", f
+      else:
+        print "   > ignoring directory ", f
+    else:
+      print "   > skipping", f
+    iFile += 1
+
+if args.cluster == "lpc":
+  lpcEosInputs(args.inDirName)
+elif args.cluster == "brux":
+  bruxIsilonInputs(args.inDirName)
+else:
+  print "invalid cluster"
+  exit(1)
 print "checking input files for integrity"
 goodFiles = []
 badFiles = []
@@ -59,7 +92,7 @@ loadRet = gSystem.Load('smallify_C')
 print "smallify_C.so load return code:", loadRet
 gSystem.Load('smallify_C')
 smallifier = smallify(chain)
-smallifier.Loop(outputName)
+smallifier.Loop(args.outputName)
 
 newHcounter = TH1I("hCounter", "Events counter", 5,0,5)
 for inFileName in goodFiles:
@@ -69,7 +102,7 @@ for inFileName in goodFiles:
   #print "file %s has %i events." % ( inFileName, inFile.Get("ntuplizer/hCounter").GetBinContent(1) )
   newHcounter.SetBinContent(1, newHcounter.GetBinContent(1) + inFile.Get("ntuplizer/hCounter").GetBinContent(1))
   #print " -->total = %i" % newHcounter.GetBinContent(1)
-outfile = TFile(outputName, "UPDATE")
+outfile = TFile(args.outputName, "UPDATE")
 outfile.cd("ntuplizer")
 newHcounter.Write()
 outfile.Close()

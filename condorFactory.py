@@ -47,6 +47,10 @@ eval `scramv1 runtime -sh`
 
 def lpcScript(incantation, outFileName):
   return """#!/bin/bash
+if [[ $# -ne 1 ]] ; then
+    echo "missing queue number"
+    exit 1
+fi
 cd ${_CONDOR_SCRATCH_DIR}
 tar -xvf smallifyTarball.tar
 if [[ $? -ne 0 ]] ; then
