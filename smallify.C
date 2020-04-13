@@ -17,13 +17,13 @@ void smallify::Loop(std::string outputFileName) {
   //     ientry for TTree::GetEntry and TBranch::GetEntry
   fChain->SetBranchStatus("*",0);  // disable all branches
   fChain->SetBranchStatus("HLT_isFired"                  , 1);  
-  fChain->SetBranchStatus("passFilter_GoodVtx"           , 1);  
-  fChain->SetBranchStatus("passFilter_CSCTightHalo2015"  , 1);  
-  fChain->SetBranchStatus("passFilter_muonBadTrack"      , 1);  
-  fChain->SetBranchStatus("passFilter_HBHE"              , 1);  
-  fChain->SetBranchStatus("passFilter_HBHEIso"           , 1);  
-  fChain->SetBranchStatus("passFilter_EEBadSc"           , 1);  
-  fChain->SetBranchStatus("passFilter_EEBadSc"           , 1);  
+  //fChain->SetBranchStatus("passFilter_GoodVtx"           , 1);  
+  //fChain->SetBranchStatus("passFilter_CSCTightHalo2015"  , 1);  
+  //fChain->SetBranchStatus("passFilter_muonBadTrack"      , 1);  
+  //fChain->SetBranchStatus("passFilter_HBHE"              , 1);  
+  //fChain->SetBranchStatus("passFilter_HBHEIso"           , 1);  
+  //fChain->SetBranchStatus("passFilter_EEBadSc"           , 1);  
+  //fChain->SetBranchStatus("passFilter_EEBadSc"           , 1);  
   fChain->SetBranchStatus("jetAK8_IDLoose"               , 1);
   fChain->SetBranchStatus("ph_mvaVal"                    , 1);
   fChain->SetBranchStatus("ph_mvaCat"                    , 1);
@@ -65,22 +65,22 @@ void smallify::Loop(std::string outputFileName) {
   fChain->SetBranchStatus("ph_mvaVal"                    , 1);
   fChain->SetBranchStatus("ph_mvaCat"                    , 1);
   fChain->SetBranchStatus("rho"                          , 1);
-  fChain->SetBranchStatus("jetAK4_N"                     , 1);
-  fChain->SetBranchStatus("jetAK4_pt"                    , 1);
-  fChain->SetBranchStatus("jetAK4_eta"                   , 1);
-  fChain->SetBranchStatus("jetAK4_mass"                  , 1);
-  fChain->SetBranchStatus("jetAK4_phi"                   , 1);
-  fChain->SetBranchStatus("jetAK4_e"                     , 1);
-  fChain->SetBranchStatus("jetAK4_jec"                   , 1);
-  fChain->SetBranchStatus("jetAK4_IDLoose"               , 1);
-  fChain->SetBranchStatus("jetAK4_IDTight"               , 1);
-  fChain->SetBranchStatus("jetAK4_IDTightLepVeto"        , 1);
-  fChain->SetBranchStatus("jetAK4_charge"                , 1);
-  //fChain->SetBranchStatus("jetAK4_cisv"                  , 1);
-  fChain->SetBranchStatus("jetAK4_vtxMass"               , 1);
-  fChain->SetBranchStatus("jetAK4_vtxNtracks"            , 1);
-  fChain->SetBranchStatus("jetAK4_vtx3DVal"              , 1);
-  fChain->SetBranchStatus("jetAK4_vtx3DSig"              , 1);
+  //fChain->SetBranchStatus("jetAK4_N"                     , 1);
+  //fChain->SetBranchStatus("jetAK4_pt"                    , 1);
+  //fChain->SetBranchStatus("jetAK4_eta"                   , 1);
+  //fChain->SetBranchStatus("jetAK4_mass"                  , 1);
+  //fChain->SetBranchStatus("jetAK4_phi"                   , 1);
+  //fChain->SetBranchStatus("jetAK4_e"                     , 1);
+  //fChain->SetBranchStatus("jetAK4_jec"                   , 1);
+  //fChain->SetBranchStatus("jetAK4_IDLoose"               , 1);
+  //fChain->SetBranchStatus("jetAK4_IDTight"               , 1);
+  //fChain->SetBranchStatus("jetAK4_IDTightLepVeto"        , 1);
+  //fChain->SetBranchStatus("jetAK4_charge"                , 1);
+  ////fChain->SetBranchStatus("jetAK4_cisv"                  , 1);
+  //fChain->SetBranchStatus("jetAK4_vtxMass"               , 1);
+  //fChain->SetBranchStatus("jetAK4_vtxNtracks"            , 1);
+  //fChain->SetBranchStatus("jetAK4_vtx3DVal"              , 1);
+  //fChain->SetBranchStatus("jetAK4_vtx3DSig"              , 1);
   fChain->SetBranchStatus("jetAK8_N"                     , 1);
   fChain->SetBranchStatus("jetAK8_pt"                    , 1);
   fChain->SetBranchStatus("jetAK8_eta"                   , 1);
@@ -92,30 +92,48 @@ void smallify::Loop(std::string outputFileName) {
   fChain->SetBranchStatus("jetAK8_jecDown"               , 1);
   fChain->SetBranchStatus("jetAK8_IDLoose"               , 1);
   fChain->SetBranchStatus("jetAK8_IDTight"               , 1);
-  fChain->SetBranchStatus("jetAK8_IDTightLepVeto"        , 1);
+  //fChain->SetBranchStatus("jetAK8_IDTightLepVeto"        , 1);
   fChain->SetBranchStatus("jetAK8_charge"                , 1);
-  fChain->SetBranchStatus("jetAK8_Hbbtag"                , 1);
-  fChain->SetBranchStatus("jetAK8_csv"                   , 1);
+  //fChain->SetBranchStatus("jetAK8_Hbbtag"                , 1);
+  //fChain->SetBranchStatus("jetAK8_csv"                   , 1);
+  fChain->SetBranchStatus("jetAK8_DDB"                           , 1);
+  fChain->SetBranchStatus("jetAK8_decDDB"                        , 1);
+  fChain->SetBranchStatus("jetAK8_deep_csv_b"                    , 1);
+  fChain->SetBranchStatus("jetAK8_deep_csv_bb"                   , 1);
+  fChain->SetBranchStatus("jetAK8_akx_WvsQCD"                    , 1);
+  fChain->SetBranchStatus("jetAK8_akx_ZvsQCD"                    , 1);
+  fChain->SetBranchStatus("jetAK8_akx_ZbbvsQCD"                  , 1);
+  fChain->SetBranchStatus("jetAK8_akx_HbbvsQCD"                  , 1);
+  fChain->SetBranchStatus("jetAK8_akx_H4qvsQCD"                  , 1);
+  fChain->SetBranchStatus("jetAK8_akx_probWcq"                   , 1);
+  fChain->SetBranchStatus("jetAK8_akx_probWqq"                   , 1);
+  fChain->SetBranchStatus("jetAK8_akx_probZbb"                   , 1);
+  fChain->SetBranchStatus("jetAK8_akx_probZcc"                   , 1);
+  fChain->SetBranchStatus("jetAK8_akx_probZqq"                   , 1);
+  fChain->SetBranchStatus("jetAK8_akx_probHbb"                   , 1);
+
   fChain->SetBranchStatus("jetAK8_tau1"                  , 1);
   fChain->SetBranchStatus("jetAK8_tau2"                  , 1);
   fChain->SetBranchStatus("jetAK8_tau3"                  , 1);
-  fChain->SetBranchStatus("jetAK8_pruned_mass"           , 1);
-  fChain->SetBranchStatus("jetAK8_pruned_massCorr"       , 1);
-  fChain->SetBranchStatus("jetAK8_pruned_jec"            , 1);
-  fChain->SetBranchStatus("jetAK8_pruned_jecUp"          , 1);
-  fChain->SetBranchStatus("jetAK8_pruned_jecDown"        , 1);
+  //fChain->SetBranchStatus("jetAK8_pruned_mass"           , 1);
+  //fChain->SetBranchStatus("jetAK8_pruned_massCorr"       , 1);
+  //fChain->SetBranchStatus("jetAK8_pruned_jec"            , 1);
+  //fChain->SetBranchStatus("jetAK8_pruned_jecUp"          , 1);
+  //fChain->SetBranchStatus("jetAK8_pruned_jecDown"        , 1);
   fChain->SetBranchStatus("jetAK8_softdrop_mass"         , 1);
   fChain->SetBranchStatus("jetAK8_softdrop_massCorr"     , 1);
   fChain->SetBranchStatus("jetAK8_softdrop_jec"          , 1);
-  fChain->SetBranchStatus("jetAK8_puppi_pt"                , 1);
-  fChain->SetBranchStatus("jetAK8_puppi_softdrop_mass"     , 1);
-  fChain->SetBranchStatus("jetAK8_puppi_softdrop_massCorr" , 1);
-  fChain->SetBranchStatus("jetAK8_puppi_e"                 , 1);
-  fChain->SetBranchStatus("jetAK8_puppi_eta"               , 1);
-  fChain->SetBranchStatus("jetAK8_puppi_phi"               , 1);
-  fChain->SetBranchStatus("jetAK8_puppi_tau1"              , 1);
-  fChain->SetBranchStatus("jetAK8_puppi_tau2"              , 1);
-  fChain->SetBranchStatus("jetAK8_puppi_tau3 "             , 1);
+  fChain->SetBranchStatus("jetAK8_softdrop_jecUp"          , 1);
+  fChain->SetBranchStatus("jetAK8_softdrop_jecDown"          , 1);
+  //fChain->SetBranchStatus("jetAK8_puppi_pt"                , 1);
+  //fChain->SetBranchStatus("jetAK8_puppi_softdrop_mass"     , 1);
+  //fChain->SetBranchStatus("jetAK8_puppi_softdrop_massCorr" , 1);
+  //fChain->SetBranchStatus("jetAK8_puppi_e"                 , 1);
+  //fChain->SetBranchStatus("jetAK8_puppi_eta"               , 1);
+  //fChain->SetBranchStatus("jetAK8_puppi_phi"               , 1);
+  //fChain->SetBranchStatus("jetAK8_puppi_tau1"              , 1);
+  //fChain->SetBranchStatus("jetAK8_puppi_tau2"              , 1);
+  //fChain->SetBranchStatus("jetAK8_puppi_tau3 "             , 1);
   fChain->SetBranchStatus("EVENT_event"                  , 1);
   fChain->SetBranchStatus("EVENT_run"                    , 1);
   fChain->SetBranchStatus("EVENT_lumiBlock"              , 1);
@@ -143,7 +161,7 @@ void smallify::Loop(std::string outputFileName) {
     if (useTriggerInfo) {
       passTrig = false;
       for(map<string,bool>::iterator it = HLT_isFired->begin(); it != HLT_isFired->end(); ++it) {
-        if (it->first == "HLT_Photon175_v1" || it->first == "HLT_Photon175_v2" ||  it->first == "HLT_Photon175_v3" || "HLT_Photon175_v4" || "HLT_Photon175_v5" ||  it->first =="HLT_Photon165_HE10_v1" ||  it->first =="HLT_Photon165_HE10_v2" ||  it->first =="HLT_Photon165_HE10_v3" || it->first =="HLT_Photon165_HE10_v4"|| it->first =="HLT_Photon165_HE10_v5")  {
+        if (it->first.find("HLT_Photon200_") != string::npos)   {
           passTrig |= (1==it->second);
         }
       }
@@ -167,8 +185,8 @@ Int_t smallify::Cut(Long64_t entry) {
   jetVec.SetPtEtaPhiE(0,0,0,0);
   for(std::vector<float>::iterator it = ph_pt->begin(); it != ph_pt->end(); ++it) {
     if (*it > 180                && 
-        ( (ph_mvaCat->at(iPh)==0 && ph_mvaVal->at(iPh)>0.20) || 
-          (ph_mvaCat->at(iPh)==1 && ph_mvaVal->at(iPh)>0.20) 
+        ( (ph_mvaCat->at(iPh)==0 && ph_mvaVal->at(iPh)>0.27) ||  // barrel
+          (ph_mvaCat->at(iPh)==1 && ph_mvaVal->at(iPh)>0.14)     // endcap
         )                        && 
         ph_passEleVeto->at(iPh)  &&
         std::abs(ph_eta->at(iPh)) < 2.4

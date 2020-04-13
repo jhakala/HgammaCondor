@@ -83,25 +83,27 @@ public :
    vector<int>     *ph_passTightId;
    vector<float>   *ph_mvaVal;
    vector<float>   *ph_mvaCat;
+   vector<float>   *ph_energyscale;
+   vector<float>   *ph_resolution;
    Float_t         rho;
-   Int_t           jetAK4_N;
-   vector<float>   *jetAK4_pt;
-   vector<float>   *jetAK4_eta;
-   vector<float>   *jetAK4_mass;
-   vector<float>   *jetAK4_phi;
-   vector<float>   *jetAK4_e;
-   vector<float>   *jetAK4_jec;
-   vector<float>   *jetAK4_jecUp;
-   vector<float>   *jetAK4_jecDown;
-   vector<bool>    *jetAK4_IDLoose;
-   vector<bool>    *jetAK4_IDTight;
-   vector<bool>    *jetAK4_IDTightLepVeto;
-   vector<int>     *jetAK4_charge;
-   vector<float>   *jetAK4_csv;
-   vector<float>   *jetAK4_vtxMass;
-   vector<float>   *jetAK4_vtxNtracks;
-   vector<float>   *jetAK4_vtx3DVal;
-   vector<float>   *jetAK4_vtx3DSig;
+   //Int_t           jetAK4_N;
+   //vector<float>   *jetAK4_pt;
+   //vector<float>   *jetAK4_eta;
+   //vector<float>   *jetAK4_mass;
+   //vector<float>   *jetAK4_phi;
+   //vector<float>   *jetAK4_e;
+   //vector<float>   *jetAK4_jec;
+   //vector<float>   *jetAK4_jecUp;
+   //vector<float>   *jetAK4_jecDown;
+   //vector<bool>    *jetAK4_IDLoose;
+   //vector<bool>    *jetAK4_IDTight;
+   //vector<bool>    *jetAK4_IDTightLepVeto;
+   //vector<int>     *jetAK4_charge;
+   //vector<float>   *jetAK4_csv;
+   //vector<float>   *jetAK4_vtxMass;
+   //vector<float>   *jetAK4_vtxNtracks;
+   //vector<float>   *jetAK4_vtx3DVal;
+   //vector<float>   *jetAK4_vtx3DSig;
    Int_t           jetAK8_N;
    vector<float>   *jetAK8_pt;
    vector<float>   *jetAK8_eta;
@@ -113,10 +115,26 @@ public :
    vector<float>   *jetAK8_jecDown;
    vector<bool>    *jetAK8_IDLoose;
    vector<bool>    *jetAK8_IDTight;
-   vector<bool>    *jetAK8_IDTightLepVeto;
+   //vector<bool>    *jetAK8_IDTightLepVeto;
    vector<int>     *jetAK8_charge;
-   vector<float>   *jetAK8_Hbbtag;
-   vector<float>   *jetAK8_csv;
+   //vector<float>   *jetAK8_Hbbtag;
+   //vector<float>   *jetAK8_csv;
+
+   vector<float>   *jetAK8_DDB;
+   vector<float>   *jetAK8_decDDB;
+   vector<float>   *jetAK8_deep_csv_b;
+   vector<float>   *jetAK8_deep_csv_bb;
+   vector<float>   *jetAK8_akx_WvsQCD;
+   vector<float>   *jetAK8_akx_ZvsQCD;
+   vector<float>   *jetAK8_akx_ZbbvsQCD;
+   vector<float>   *jetAK8_akx_HbbvsQCD;
+   vector<float>   *jetAK8_akx_H4qvsQCD;
+   vector<float>   *jetAK8_akx_probWcq;
+   vector<float>   *jetAK8_akx_probWqq;
+   vector<float>   *jetAK8_akx_probZbb;
+   vector<float>   *jetAK8_akx_probZcc;
+   vector<float>   *jetAK8_akx_probZqq;
+   vector<float>   *jetAK8_akx_probHbb;
    vector<float>   *jetAK8_tau1;
    vector<float>   *jetAK8_tau2;
    vector<float>   *jetAK8_tau3;
@@ -130,44 +148,44 @@ public :
    vector<float>   *jetAK8_softdrop_jec;
    vector<float>   *jetAK8_softdrop_jecUp;
    vector<float>   *jetAK8_softdrop_jecDown;
-   vector<int>     *jetAK8_subjet_softdrop_N;
-   vector<vector<float> > *jetAK8_subjet_softdrop_pt;
-   vector<vector<float> > *jetAK8_subjet_softdrop_eta;
-   vector<vector<float> > *jetAK8_subjet_softdrop_mass;
-   vector<vector<float> > *jetAK8_subjet_softdrop_phi;
-   vector<vector<float> > *jetAK8_subjet_softdrop_e;
-   vector<vector<int> > *jetAK8_subjet_softdrop_charge;
-   vector<vector<float> > *jetAK8_subjet_softdrop_csv;
-   vector<float>   *jetAK8_puppi_pt;
-   vector<float>   *jetAK8_puppi_eta;
-   vector<float>   *jetAK8_puppi_mass;
-   vector<float>   *jetAK8_puppi_phi;
-   vector<float>   *jetAK8_puppi_e;
-   vector<float>   *jetAK8_puppi_pruned_mass;
-   vector<float>   *jetAK8_puppi_pruned_massCorr;
-   vector<float>   *jetAK8_puppi_pruned_jec;
-   vector<float>   *jetAK8_puppi_softdrop_mass;
-   vector<float>   *jetAK8_puppi_softdrop_massCorr;
-   vector<float>   *jetAK8_puppi_softdrop_jec;
-   vector<float>   *jetAK8_puppi_tau1;
-   vector<float>   *jetAK8_puppi_tau2;
-   vector<float>   *jetAK8_puppi_tau3;
-   vector<int>     *jetAK8_subjet_puppi_softdrop_N;
-   vector<vector<float> > *jetAK8_subjet_puppi_softdrop_pt;
-   vector<vector<float> > *jetAK8_subjet_puppi_softdrop_eta;
-   vector<vector<float> > *jetAK8_subjet_puppi_softdrop_mass;
-   vector<vector<float> > *jetAK8_subjet_puppi_softdrop_phi;
-   vector<vector<float> > *jetAK8_subjet_puppi_softdrop_e;
-   vector<vector<int> > *jetAK8_subjet_puppi_softdrop_charge;
-   vector<vector<float> > *jetAK8_subjet_puppi_softdrop_csv;
-   vector<int>     *jetAK8_subjet_pruned_N;
-   vector<vector<float> > *jetAK8_subjet_pruned_pt;
-   vector<vector<float> > *jetAK8_subjet_pruned_eta;
-   vector<vector<float> > *jetAK8_subjet_pruned_mass;
-   vector<vector<float> > *jetAK8_subjet_pruned_phi;
-   vector<vector<float> > *jetAK8_subjet_pruned_e;
-   vector<vector<int> > *jetAK8_subjet_pruned_charge;
-   vector<vector<float> > *jetAK8_subjet_pruned_csv;
+   //vector<int>     *jetAK8_subjet_softdrop_N;
+   //vector<vector<float> > *jetAK8_subjet_softdrop_pt;
+   //vector<vector<float> > *jetAK8_subjet_softdrop_eta;
+   //vector<vector<float> > *jetAK8_subjet_softdrop_mass;
+   //vector<vector<float> > *jetAK8_subjet_softdrop_phi;
+   //vector<vector<float> > *jetAK8_subjet_softdrop_e;
+   //vector<vector<int> > *jetAK8_subjet_softdrop_charge;
+   //vector<vector<float> > *jetAK8_subjet_softdrop_csv;
+   //vector<float>   *jetAK8_puppi_pt;
+   //vector<float>   *jetAK8_puppi_eta;
+   //vector<float>   *jetAK8_puppi_mass;
+   //vector<float>   *jetAK8_puppi_phi;
+   //vector<float>   *jetAK8_puppi_e;
+   //vector<float>   *jetAK8_puppi_pruned_mass;
+   //vector<float>   *jetAK8_puppi_pruned_massCorr;
+   //vector<float>   *jetAK8_puppi_pruned_jec;
+   //vector<float>   *jetAK8_puppi_softdrop_mass;
+   //vector<float>   *jetAK8_puppi_softdrop_massCorr;
+   //vector<float>   *jetAK8_puppi_softdrop_jec;
+   //vector<float>   *jetAK8_puppi_tau1;
+   //vector<float>   *jetAK8_puppi_tau2;
+   //vector<float>   *jetAK8_puppi_tau3;
+   //vector<int>     *jetAK8_subjet_puppi_softdrop_N;
+   //vector<vector<float> > *jetAK8_subjet_puppi_softdrop_pt;
+   //vector<vector<float> > *jetAK8_subjet_puppi_softdrop_eta;
+   //vector<vector<float> > *jetAK8_subjet_puppi_softdrop_mass;
+   //vector<vector<float> > *jetAK8_subjet_puppi_softdrop_phi;
+   //vector<vector<float> > *jetAK8_subjet_puppi_softdrop_e;
+   //vector<vector<int> > *jetAK8_subjet_puppi_softdrop_charge;
+   //vector<vector<float> > *jetAK8_subjet_puppi_softdrop_csv;
+   //vector<int>     *jetAK8_subjet_pruned_N;
+   //vector<vector<float> > *jetAK8_subjet_pruned_pt;
+   //vector<vector<float> > *jetAK8_subjet_pruned_eta;
+   //vector<vector<float> > *jetAK8_subjet_pruned_mass;
+   //vector<vector<float> > *jetAK8_subjet_pruned_phi;
+   //vector<vector<float> > *jetAK8_subjet_pruned_e;
+   //vector<vector<int> > *jetAK8_subjet_pruned_charge;
+   //vector<vector<float> > *jetAK8_subjet_pruned_csv;
    map<string,bool> *HLT_isFired;
    Bool_t          passFilter_HBHE;
    Bool_t          passFilter_HBHELoose;
@@ -225,24 +243,24 @@ public :
    TBranch        *b_ph_mvaVal;   //!
    TBranch        *b_ph_mvaCat;   //!
    TBranch        *b_rho;   //!
-   TBranch        *b_jetAK4_N;   //!
-   TBranch        *b_jetAK4_pt;   //!
-   TBranch        *b_jetAK4_eta;   //!
-   TBranch        *b_jetAK4_mass;   //!
-   TBranch        *b_jetAK4_phi;   //!
-   TBranch        *b_jetAK4_e;   //!
-   TBranch        *b_jetAK4_jec;   //!
-   TBranch        *b_jetAK4_jecUp;   //!
-   TBranch        *b_jetAK4_jecDown;   //!
-   TBranch        *b_jetAK4_IDLoose;   //!
-   TBranch        *b_jetAK4_IDTight;   //!
-   TBranch        *b_jetAK4_IDTightLepVeto;   //!
-   TBranch        *b_jetAK4_charge;   //!
-   TBranch        *b_jetAK4_csv;   //!
-   TBranch        *b_jetAK4_vtxMass;   //!
-   TBranch        *b_jetAK4_vtxNtracks;   //!
-   TBranch        *b_jetAK4_vtx3DVal;   //!
-   TBranch        *b_jetAK4_vtx3DSig;   //!
+   //TBranch        *b_jetAK4_N;   //!
+   //TBranch        *b_jetAK4_pt;   //!
+   //TBranch        *b_jetAK4_eta;   //!
+   //TBranch        *b_jetAK4_mass;   //!
+   //TBranch        *b_jetAK4_phi;   //!
+   //TBranch        *b_jetAK4_e;   //!
+   //TBranch        *b_jetAK4_jec;   //!
+   //TBranch        *b_jetAK4_jecUp;   //!
+   //TBranch        *b_jetAK4_jecDown;   //!
+   //TBranch        *b_jetAK4_IDLoose;   //!
+   //TBranch        *b_jetAK4_IDTight;   //!
+   //TBranch        *b_jetAK4_IDTightLepVeto;   //!
+   //TBranch        *b_jetAK4_charge;   //!
+   //TBranch        *b_jetAK4_csv;   //!
+   //TBranch        *b_jetAK4_vtxMass;   //!
+   //TBranch        *b_jetAK4_vtxNtracks;   //!
+   //TBranch        *b_jetAK4_vtx3DVal;   //!
+   //TBranch        *b_jetAK4_vtx3DSig;   //!
    TBranch        *b_jetAK8_N;   //!
    TBranch        *b_jetAK8_pt;   //!
    TBranch        *b_jetAK8_eta;   //!
@@ -254,84 +272,101 @@ public :
    TBranch        *b_jetAK8_jecDown;   //!
    TBranch        *b_jetAK8_IDLoose;   //!
    TBranch        *b_jetAK8_IDTight;   //!
-   TBranch        *b_jetAK8_IDTightLepVeto;   //!
+   //TBranch        *b_jetAK8_IDTightLepVeto;   //!
    TBranch        *b_jetAK8_charge;   //!
-   TBranch        *b_jetAK8_Hbbtag;   //!
-   TBranch        *b_jetAK8_csv;   //!
+   //TBranch        *b_jetAK8_Hbbtag;   //!
+   //TBranch        *b_jetAK8_csv;   //!
+
+  TBranch         *b_jetAK8_DDB;
+  TBranch         *b_jetAK8_decDDB;
+  TBranch         *b_jetAK8_deep_csv_b;
+  TBranch         *b_jetAK8_deep_csv_bb;
+  TBranch         *b_jetAK8_akx_WvsQCD;
+  TBranch         *b_jetAK8_akx_ZvsQCD;
+  TBranch         *b_jetAK8_akx_ZbbvsQCD;
+  TBranch         *b_jetAK8_akx_HbbvsQCD;
+  TBranch         *b_jetAK8_akx_H4qvsQCD;
+  TBranch         *b_jetAK8_akx_probWcq;
+  TBranch         *b_jetAK8_akx_probWqq;
+  TBranch         *b_jetAK8_akx_probZbb;
+  TBranch         *b_jetAK8_akx_probZcc;
+  TBranch         *b_jetAK8_akx_probZqq;
+  TBranch         *b_jetAK8_akx_probHbb;
+
    TBranch        *b_jetAK8_tau1;   //!
    TBranch        *b_jetAK8_tau2;   //!
    TBranch        *b_jetAK8_tau3;   //!
-   TBranch        *b_jetAK8_pruned_mass;   //!
-   TBranch        *b_jetAK8_pruned_massCorr;   //!
-   TBranch        *b_jetAK8_pruned_jec;   //!
-   TBranch        *b_jetAK8_pruned_jecUp;   //!
-   TBranch        *b_jetAK8_pruned_jecDown;   //!
+   //TBranch        *b_jetAK8_pruned_mass;   //!
+   //TBranch        *b_jetAK8_pruned_massCorr;   //!
+   //TBranch        *b_jetAK8_pruned_jec;   //!
+   //TBranch        *b_jetAK8_pruned_jecUp;   //!
+   //TBranch        *b_jetAK8_pruned_jecDown;   //!
    TBranch        *b_jetAK8_softdrop_mass;   //!
    TBranch        *b_jetAK8_softdrop_massCorr;   //!
    TBranch        *b_jetAK8_softdrop_jec;   //!
    TBranch        *b_jetAK8_softdrop_jecUp;   //!
    TBranch        *b_jetAK8_softdrop_jecDown;   //!
-   TBranch        *b_jetAK8_subjet_softdrop_N;   //!
-   TBranch        *b_jetAK8_subjet_softdrop_pt;   //!
-   TBranch        *b_jetAK8_subjet_softdrop_eta;   //!
-   TBranch        *b_jetAK8_subjet_softdrop_mass;   //!
-   TBranch        *b_jetAK8_subjet_softdrop_phi;   //!
-   TBranch        *b_jetAK8_subjet_softdrop_e;   //!
-   TBranch        *b_jetAK8_subjet_softdrop_charge;   //!
-   TBranch        *b_jetAK8_subjet_softdrop_csv;   //!
-   TBranch        *b_jetAK8_puppi_pt;   //!
-   TBranch        *b_jetAK8_puppi_eta;   //!
-   TBranch        *b_jetAK8_puppi_mass;   //!
-   TBranch        *b_jetAK8_puppi_phi;   //!
-   TBranch        *b_jetAK8_puppi_e;   //!
-   TBranch        *b_jetAK8_puppi_pruned_mass;   //!
-   TBranch        *b_jetAK8_puppi_pruned_massCorr;   //!
-   TBranch        *b_jetAK8_puppi_pruned_jec;   //!
-   TBranch        *b_jetAK8_puppi_softdrop_mass;   //!
-   TBranch        *b_jetAK8_puppi_softdrop_massCorr;   //!
-   TBranch        *b_jetAK8_puppi_softdrop_jec;   //!
-   TBranch        *b_jetAK8_puppi_tau1;   //!
-   TBranch        *b_jetAK8_puppi_tau2;   //!
-   TBranch        *b_jetAK8_puppi_tau3;   //!
-   TBranch        *b_jetAK8_subjet_puppi_softdrop_N;   //!
-   TBranch        *b_jetAK8_subjet_puppi_softdrop_pt;   //!
-   TBranch        *b_jetAK8_subjet_puppi_softdrop_eta;   //!
-   TBranch        *b_jetAK8_subjet_puppi_softdrop_mass;   //!
-   TBranch        *b_jetAK8_subjet_puppi_softdrop_phi;   //!
-   TBranch        *b_jetAK8_subjet_puppi_softdrop_e;   //!
-   TBranch        *b_jetAK8_subjet_puppi_softdrop_charge;   //!
-   TBranch        *b_jetAK8_subjet_puppi_softdrop_csv;   //!
-   TBranch        *b_jetAK8_subjet_pruned_N;   //!
-   TBranch        *b_jetAK8_subjet_pruned_pt;   //!
-   TBranch        *b_jetAK8_subjet_pruned_eta;   //!
-   TBranch        *b_jetAK8_subjet_pruned_mass;   //!
-   TBranch        *b_jetAK8_subjet_pruned_phi;   //!
-   TBranch        *b_jetAK8_subjet_pruned_e;   //!
-   TBranch        *b_jetAK8_subjet_pruned_charge;   //!
-   TBranch        *b_jetAK8_subjet_pruned_csv;   //!
+   //TBranch        *b_jetAK8_subjet_softdrop_N;   //!
+   //TBranch        *b_jetAK8_subjet_softdrop_pt;   //!
+   //TBranch        *b_jetAK8_subjet_softdrop_eta;   //!
+   //TBranch        *b_jetAK8_subjet_softdrop_mass;   //!
+   //TBranch        *b_jetAK8_subjet_softdrop_phi;   //!
+   //TBranch        *b_jetAK8_subjet_softdrop_e;   //!
+   //TBranch        *b_jetAK8_subjet_softdrop_charge;   //!
+   //TBranch        *b_jetAK8_subjet_softdrop_csv;   //!
+   //TBranch        *b_jetAK8_puppi_pt;   //!
+   //TBranch        *b_jetAK8_puppi_eta;   //!
+   //TBranch        *b_jetAK8_puppi_mass;   //!
+   //TBranch        *b_jetAK8_puppi_phi;   //!
+   //TBranch        *b_jetAK8_puppi_e;   //!
+   //TBranch        *b_jetAK8_puppi_pruned_mass;   //!
+   //TBranch        *b_jetAK8_puppi_pruned_massCorr;   //!
+   //TBranch        *b_jetAK8_puppi_pruned_jec;   //!
+   //TBranch        *b_jetAK8_puppi_softdrop_mass;   //!
+   //TBranch        *b_jetAK8_puppi_softdrop_massCorr;   //!
+   //TBranch        *b_jetAK8_puppi_softdrop_jec;   //!
+   //TBranch        *b_jetAK8_puppi_tau1;   //!
+   //TBranch        *b_jetAK8_puppi_tau2;   //!
+   //TBranch        *b_jetAK8_puppi_tau3;   //!
+   //TBranch        *b_jetAK8_subjet_puppi_softdrop_N;   //!
+   //TBranch        *b_jetAK8_subjet_puppi_softdrop_pt;   //!
+   //TBranch        *b_jetAK8_subjet_puppi_softdrop_eta;   //!
+   //TBranch        *b_jetAK8_subjet_puppi_softdrop_mass;   //!
+   //TBranch        *b_jetAK8_subjet_puppi_softdrop_phi;   //!
+   //TBranch        *b_jetAK8_subjet_puppi_softdrop_e;   //!
+   //TBranch        *b_jetAK8_subjet_puppi_softdrop_charge;   //!
+   //TBranch        *b_jetAK8_subjet_puppi_softdrop_csv;   //!
+   //TBranch        *b_jetAK8_subjet_pruned_N;   //!
+   //TBranch        *b_jetAK8_subjet_pruned_pt;   //!
+   //TBranch        *b_jetAK8_subjet_pruned_eta;   //!
+   //TBranch        *b_jetAK8_subjet_pruned_mass;   //!
+   //TBranch        *b_jetAK8_subjet_pruned_phi;   //!
+   //TBranch        *b_jetAK8_subjet_pruned_e;   //!
+   //TBranch        *b_jetAK8_subjet_pruned_charge;   //!
+   //TBranch        *b_jetAK8_subjet_pruned_csv;   //!
    TBranch        *b_HLT_isFired;   //!
-   TBranch        *b_passFilter_HBHE_;   //!
-   TBranch        *b_passFilter_HBHELoose_;   //!
-   TBranch        *b_passFilter_HBHETight_;   //!
-   TBranch        *b_passFilter_HBHEIso_;   //!
-   TBranch        *b_passFilter_CSCHalo_;   //!
-   TBranch        *b_passFilter_CSCTightHalo2015_;   //!
-   TBranch        *b_passFilter_HCALlaser_;   //!
-   TBranch        *b_passFilter_ECALDeadCell_;   //!
-   TBranch        *b_passFilter_GoodVtx_;   //!
-   TBranch        *b_passFilter_TrkFailure_;   //!
-   TBranch        *b_passFilter_EEBadSc_;   //!
-   TBranch        *b_passFilter_ECALlaser_;   //!
-   TBranch        *b_passFilter_TrkPOG_;   //!
-   TBranch        *b_passFilter_TrkPOG_manystrip_;   //!
-   TBranch        *b_passFilter_TrkPOG_toomanystrip_;   //!
-   TBranch        *b_passFilter_TrkPOG_logError_;   //!
-   TBranch        *b_passFilter_METFilters_;   //!
-   TBranch        *b_passFilter_CSCTightHaloTrkMuUnvetoFilter_;   //!
-   TBranch        *b_passFilter_globalTightHalo2016_;   //!
-   TBranch        *b_passFilter_HcalStripHalo_;   //!
-   TBranch        *b_passFilter_chargedHadronTrackResolution_;   //!
-   TBranch        *b_passFilter_muonBadTrack_;   //!
+   //TBranch        *b_passFilter_HBHE_;   //!
+   //TBranch        *b_passFilter_HBHELoose_;   //!
+   //TBranch        *b_passFilter_HBHETight_;   //!
+   //TBranch        *b_passFilter_HBHEIso_;   //!
+   //TBranch        *b_passFilter_CSCHalo_;   //!
+   //TBranch        *b_passFilter_CSCTightHalo2015_;   //!
+   //TBranch        *b_passFilter_HCALlaser_;   //!
+   //TBranch        *b_passFilter_ECALDeadCell_;   //!
+   //TBranch        *b_passFilter_GoodVtx_;   //!
+   //TBranch        *b_passFilter_TrkFailure_;   //!
+   //TBranch        *b_passFilter_EEBadSc_;   //!
+   //TBranch        *b_passFilter_ECALlaser_;   //!
+   //TBranch        *b_passFilter_TrkPOG_;   //!
+   //TBranch        *b_passFilter_TrkPOG_manystrip_;   //!
+   //TBranch        *b_passFilter_TrkPOG_toomanystrip_;   //!
+   //TBranch        *b_passFilter_TrkPOG_logError_;   //!
+   //TBranch        *b_passFilter_METFilters_;   //!
+   //TBranch        *b_passFilter_CSCTightHaloTrkMuUnvetoFilter_;   //!
+   //TBranch        *b_passFilter_globalTightHalo2016_;   //!
+   //TBranch        *b_passFilter_HcalStripHalo_;   //!
+   //TBranch        *b_passFilter_chargedHadronTrackResolution_;   //!
+   //TBranch        *b_passFilter_muonBadTrack_;   //!
    TBranch        *b_EVENT_event;   //!
    TBranch        *b_EVENT_run;   //!
    TBranch        *b_EVENT_lumiBlock;   //!
@@ -441,23 +476,25 @@ void smallify::Init(TTree *tree)
    ph_passTightId = 0;
    ph_mvaVal = 0;
    ph_mvaCat = 0;
-   jetAK4_pt = 0;
-   jetAK4_eta = 0;
-   jetAK4_mass = 0;
-   jetAK4_phi = 0;
-   jetAK4_e = 0;
-   jetAK4_jec = 0;
-   jetAK4_jecUp = 0;
-   jetAK4_jecDown = 0;
-   jetAK4_IDLoose = 0;
-   jetAK4_IDTight = 0;
-   jetAK4_IDTightLepVeto = 0;
-   jetAK4_charge = 0;
-   jetAK4_csv = 0;
-   jetAK4_vtxMass = 0;
-   jetAK4_vtxNtracks = 0;
-   jetAK4_vtx3DVal = 0;
-   jetAK4_vtx3DSig = 0;
+   ph_energyscale = 0;
+   ph_resolution = 0;
+   //jetAK4_pt = 0;
+   //jetAK4_eta = 0;
+   //jetAK4_mass = 0;
+   //jetAK4_phi = 0;
+   //jetAK4_e = 0;
+   //jetAK4_jec = 0;
+   //jetAK4_jecUp = 0;
+   //jetAK4_jecDown = 0;
+   //jetAK4_IDLoose = 0;
+   //jetAK4_IDTight = 0;
+   //jetAK4_IDTightLepVeto = 0;
+   //jetAK4_charge = 0;
+   //jetAK4_csv = 0;
+   //jetAK4_vtxMass = 0;
+   //jetAK4_vtxNtracks = 0;
+   //jetAK4_vtx3DVal = 0;
+   //jetAK4_vtx3DSig = 0;
    jetAK8_pt = 0;
    jetAK8_eta = 0;
    jetAK8_mass = 0;
@@ -468,61 +505,77 @@ void smallify::Init(TTree *tree)
    jetAK8_jecDown = 0;
    jetAK8_IDLoose = 0;
    jetAK8_IDTight = 0;
-   jetAK8_IDTightLepVeto = 0;
+   //jetAK8_IDTightLepVeto = 0;
    jetAK8_charge = 0;
-   jetAK8_Hbbtag = 0;
-   jetAK8_csv = 0;
+   //jetAK8_Hbbtag = 0;
+   //jetAK8_csv = 0;
+   jetAK8_DDB = 0;
+   jetAK8_decDDB = 0;
+   jetAK8_deep_csv_b = 0;
+   jetAK8_deep_csv_bb = 0;
+   jetAK8_akx_WvsQCD = 0;
+   jetAK8_akx_ZvsQCD = 0;
+   jetAK8_akx_ZbbvsQCD = 0;
+   jetAK8_akx_HbbvsQCD = 0;
+   jetAK8_akx_H4qvsQCD = 0;
+   jetAK8_akx_probWcq = 0;
+   jetAK8_akx_probWqq = 0;
+   jetAK8_akx_probZbb = 0;
+   jetAK8_akx_probZcc = 0;
+   jetAK8_akx_probZqq = 0;
+   jetAK8_akx_probHbb = 0;
+   
    jetAK8_tau1 = 0;
    jetAK8_tau2 = 0;
    jetAK8_tau3 = 0;
-   jetAK8_pruned_mass = 0;
-   jetAK8_pruned_massCorr = 0;
-   jetAK8_pruned_jec = 0;
-   jetAK8_pruned_jecUp = 0;
-   jetAK8_pruned_jecDown = 0;
-   jetAK8_softdrop_mass = 0;
-   jetAK8_softdrop_massCorr = 0;
-   jetAK8_softdrop_jec = 0;
-   jetAK8_softdrop_jecUp = 0;
-   jetAK8_softdrop_jecDown = 0;
-   jetAK8_subjet_softdrop_N = 0;
-   jetAK8_subjet_softdrop_pt = 0;
-   jetAK8_subjet_softdrop_eta = 0;
-   jetAK8_subjet_softdrop_mass = 0;
-   jetAK8_subjet_softdrop_phi = 0;
-   jetAK8_subjet_softdrop_e = 0;
-   jetAK8_subjet_softdrop_charge = 0;
-   jetAK8_subjet_softdrop_csv = 0;
-   jetAK8_puppi_pt = 0;
-   jetAK8_puppi_eta = 0;
-   jetAK8_puppi_mass = 0;
-   jetAK8_puppi_phi = 0;
-   jetAK8_puppi_e = 0;
-   jetAK8_puppi_pruned_mass = 0;
-   jetAK8_puppi_pruned_massCorr = 0;
-   jetAK8_puppi_pruned_jec = 0;
-   jetAK8_puppi_softdrop_mass = 0;
-   jetAK8_puppi_softdrop_massCorr = 0;
-   jetAK8_puppi_softdrop_jec = 0;
-   jetAK8_puppi_tau1 = 0;
-   jetAK8_puppi_tau2 = 0;
-   jetAK8_puppi_tau3 = 0;
-   jetAK8_subjet_puppi_softdrop_N = 0;
-   jetAK8_subjet_puppi_softdrop_pt = 0;
-   jetAK8_subjet_puppi_softdrop_eta = 0;
-   jetAK8_subjet_puppi_softdrop_mass = 0;
-   jetAK8_subjet_puppi_softdrop_phi = 0;
-   jetAK8_subjet_puppi_softdrop_e = 0;
-   jetAK8_subjet_puppi_softdrop_charge = 0;
-   jetAK8_subjet_puppi_softdrop_csv = 0;
-   jetAK8_subjet_pruned_N = 0;
-   jetAK8_subjet_pruned_pt = 0;
-   jetAK8_subjet_pruned_eta = 0;
-   jetAK8_subjet_pruned_mass = 0;
-   jetAK8_subjet_pruned_phi = 0;
-   jetAK8_subjet_pruned_e = 0;
-   jetAK8_subjet_pruned_charge = 0;
-   jetAK8_subjet_pruned_csv = 0;
+   //jetAK8_pruned_mass = 0;
+   //jetAK8_pruned_massCorr = 0;
+   //jetAK8_pruned_jec = 0;
+   //jetAK8_pruned_jecUp = 0;
+   //jetAK8_pruned_jecDown = 0;
+   //jetAK8_softdrop_mass = 0;
+   //jetAK8_softdrop_massCorr = 0;
+   //jetAK8_softdrop_jec = 0;
+   //jetAK8_softdrop_jecUp = 0;
+   //jetAK8_softdrop_jecDown = 0;
+   //jetAK8_subjet_softdrop_N = 0;
+   //jetAK8_subjet_softdrop_pt = 0;
+   //jetAK8_subjet_softdrop_eta = 0;
+   //jetAK8_subjet_softdrop_mass = 0;
+   //jetAK8_subjet_softdrop_phi = 0;
+   //jetAK8_subjet_softdrop_e = 0;
+   //jetAK8_subjet_softdrop_charge = 0;
+   //jetAK8_subjet_softdrop_csv = 0;
+   //jetAK8_puppi_pt = 0;
+   //jetAK8_puppi_eta = 0;
+   //jetAK8_puppi_mass = 0;
+   //jetAK8_puppi_phi = 0;
+   //jetAK8_puppi_e = 0;
+   //jetAK8_puppi_pruned_mass = 0;
+   //jetAK8_puppi_pruned_massCorr = 0;
+   //jetAK8_puppi_pruned_jec = 0;
+   //jetAK8_puppi_softdrop_mass = 0;
+   //jetAK8_puppi_softdrop_massCorr = 0;
+   //jetAK8_puppi_softdrop_jec = 0;
+   //jetAK8_puppi_tau1 = 0;
+   //jetAK8_puppi_tau2 = 0;
+   //jetAK8_puppi_tau3 = 0;
+   //jetAK8_subjet_puppi_softdrop_N = 0;
+   //jetAK8_subjet_puppi_softdrop_pt = 0;
+   //jetAK8_subjet_puppi_softdrop_eta = 0;
+   //jetAK8_subjet_puppi_softdrop_mass = 0;
+   //jetAK8_subjet_puppi_softdrop_phi = 0;
+   //jetAK8_subjet_puppi_softdrop_e = 0;
+   //jetAK8_subjet_puppi_softdrop_charge = 0;
+   //jetAK8_subjet_puppi_softdrop_csv = 0;
+   //jetAK8_subjet_pruned_N = 0;
+   //jetAK8_subjet_pruned_pt = 0;
+   //jetAK8_subjet_pruned_eta = 0;
+   //jetAK8_subjet_pruned_mass = 0;
+   //jetAK8_subjet_pruned_phi = 0;
+   //jetAK8_subjet_pruned_e = 0;
+   //jetAK8_subjet_pruned_charge = 0;
+   //jetAK8_subjet_pruned_csv = 0;
    HLT_isFired = 0;
    PV_chi2 = 0;
    PV_ndof = 0;
@@ -557,24 +610,24 @@ void smallify::Init(TTree *tree)
    fChain->SetBranchAddress("ph_mvaVal", &ph_mvaVal, &b_ph_mvaVal);
    fChain->SetBranchAddress("ph_mvaCat", &ph_mvaCat, &b_ph_mvaCat);
    fChain->SetBranchAddress("rho", &rho, &b_rho);
-   fChain->SetBranchAddress("jetAK4_N", &jetAK4_N, &b_jetAK4_N);
-   fChain->SetBranchAddress("jetAK4_pt", &jetAK4_pt, &b_jetAK4_pt);
-   fChain->SetBranchAddress("jetAK4_eta", &jetAK4_eta, &b_jetAK4_eta);
-   fChain->SetBranchAddress("jetAK4_mass", &jetAK4_mass, &b_jetAK4_mass);
-   fChain->SetBranchAddress("jetAK4_phi", &jetAK4_phi, &b_jetAK4_phi);
-   fChain->SetBranchAddress("jetAK4_e", &jetAK4_e, &b_jetAK4_e);
-   fChain->SetBranchAddress("jetAK4_jec", &jetAK4_jec, &b_jetAK4_jec);
-   fChain->SetBranchAddress("jetAK4_jecUp", &jetAK4_jecUp, &b_jetAK4_jecUp);
-   fChain->SetBranchAddress("jetAK4_jecDown", &jetAK4_jecDown, &b_jetAK4_jecDown);
-   fChain->SetBranchAddress("jetAK4_IDLoose", &jetAK4_IDLoose, &b_jetAK4_IDLoose);
-   fChain->SetBranchAddress("jetAK4_IDTight", &jetAK4_IDTight, &b_jetAK4_IDTight);
-   fChain->SetBranchAddress("jetAK4_IDTightLepVeto", &jetAK4_IDTightLepVeto, &b_jetAK4_IDTightLepVeto);
-   fChain->SetBranchAddress("jetAK4_charge", &jetAK4_charge, &b_jetAK4_charge);
-   fChain->SetBranchAddress("jetAK4_csv", &jetAK4_csv, &b_jetAK4_csv);
-   fChain->SetBranchAddress("jetAK4_vtxMass", &jetAK4_vtxMass, &b_jetAK4_vtxMass);
-   fChain->SetBranchAddress("jetAK4_vtxNtracks", &jetAK4_vtxNtracks, &b_jetAK4_vtxNtracks);
-   fChain->SetBranchAddress("jetAK4_vtx3DVal", &jetAK4_vtx3DVal, &b_jetAK4_vtx3DVal);
-   fChain->SetBranchAddress("jetAK4_vtx3DSig", &jetAK4_vtx3DSig, &b_jetAK4_vtx3DSig);
+   //fChain->SetBranchAddress("jetAK4_N", &jetAK4_N, &b_jetAK4_N);
+   //fChain->SetBranchAddress("jetAK4_pt", &jetAK4_pt, &b_jetAK4_pt);
+   //fChain->SetBranchAddress("jetAK4_eta", &jetAK4_eta, &b_jetAK4_eta);
+   //fChain->SetBranchAddress("jetAK4_mass", &jetAK4_mass, &b_jetAK4_mass);
+   //fChain->SetBranchAddress("jetAK4_phi", &jetAK4_phi, &b_jetAK4_phi);
+   //fChain->SetBranchAddress("jetAK4_e", &jetAK4_e, &b_jetAK4_e);
+   //fChain->SetBranchAddress("jetAK4_jec", &jetAK4_jec, &b_jetAK4_jec);
+   //fChain->SetBranchAddress("jetAK4_jecUp", &jetAK4_jecUp, &b_jetAK4_jecUp);
+   //fChain->SetBranchAddress("jetAK4_jecDown", &jetAK4_jecDown, &b_jetAK4_jecDown);
+   //fChain->SetBranchAddress("jetAK4_IDLoose", &jetAK4_IDLoose, &b_jetAK4_IDLoose);
+   //fChain->SetBranchAddress("jetAK4_IDTight", &jetAK4_IDTight, &b_jetAK4_IDTight);
+   //fChain->SetBranchAddress("jetAK4_IDTightLepVeto", &jetAK4_IDTightLepVeto, &b_jetAK4_IDTightLepVeto);
+   //fChain->SetBranchAddress("jetAK4_charge", &jetAK4_charge, &b_jetAK4_charge);
+   //fChain->SetBranchAddress("jetAK4_csv", &jetAK4_csv, &b_jetAK4_csv);
+   //fChain->SetBranchAddress("jetAK4_vtxMass", &jetAK4_vtxMass, &b_jetAK4_vtxMass);
+   //fChain->SetBranchAddress("jetAK4_vtxNtracks", &jetAK4_vtxNtracks, &b_jetAK4_vtxNtracks);
+   //fChain->SetBranchAddress("jetAK4_vtx3DVal", &jetAK4_vtx3DVal, &b_jetAK4_vtx3DVal);
+   //fChain->SetBranchAddress("jetAK4_vtx3DSig", &jetAK4_vtx3DSig, &b_jetAK4_vtx3DSig);
    fChain->SetBranchAddress("jetAK8_N", &jetAK8_N, &b_jetAK8_N);
    fChain->SetBranchAddress("jetAK8_pt", &jetAK8_pt, &b_jetAK8_pt);
    fChain->SetBranchAddress("jetAK8_eta", &jetAK8_eta, &b_jetAK8_eta);
@@ -586,84 +639,100 @@ void smallify::Init(TTree *tree)
    fChain->SetBranchAddress("jetAK8_jecDown", &jetAK8_jecDown, &b_jetAK8_jecDown);
    fChain->SetBranchAddress("jetAK8_IDLoose", &jetAK8_IDLoose, &b_jetAK8_IDLoose);
    fChain->SetBranchAddress("jetAK8_IDTight", &jetAK8_IDTight, &b_jetAK8_IDTight);
-   fChain->SetBranchAddress("jetAK8_IDTightLepVeto", &jetAK8_IDTightLepVeto, &b_jetAK8_IDTightLepVeto);
+   //fChain->SetBranchAddress("jetAK8_IDTightLepVeto", &jetAK8_IDTightLepVeto, &b_jetAK8_IDTightLepVeto);
    fChain->SetBranchAddress("jetAK8_charge", &jetAK8_charge, &b_jetAK8_charge);
-   fChain->SetBranchAddress("jetAK8_Hbbtag", &jetAK8_Hbbtag, &b_jetAK8_Hbbtag);
-   fChain->SetBranchAddress("jetAK8_csv", &jetAK8_csv, &b_jetAK8_csv);
+   //fChain->SetBranchAddress("jetAK8_Hbbtag", &jetAK8_Hbbtag, &b_jetAK8_Hbbtag);
+   //fChain->SetBranchAddress("jetAK8_csv", &jetAK8_csv, &b_jetAK8_csv);
+   fChain->SetBranchAddress("jetAK8_DDB", &jetAK8_DDB, &b_jetAK8_DDB);
+   fChain->SetBranchAddress("jetAK8_decDDB", &jetAK8_decDDB, &b_jetAK8_decDDB);
+   fChain->SetBranchAddress("jetAK8_deep_csv_b", &jetAK8_deep_csv_b, &b_jetAK8_deep_csv_b);
+   fChain->SetBranchAddress("jetAK8_deep_csv_bb", &jetAK8_deep_csv_bb, &b_jetAK8_deep_csv_bb);
+   fChain->SetBranchAddress("jetAK8_akx_WvsQCD", &jetAK8_akx_WvsQCD, &b_jetAK8_akx_WvsQCD);
+   fChain->SetBranchAddress("jetAK8_akx_ZvsQCD", &jetAK8_akx_ZvsQCD, &b_jetAK8_akx_ZvsQCD);
+   fChain->SetBranchAddress("jetAK8_akx_ZbbvsQCD", &jetAK8_akx_ZbbvsQCD, &b_jetAK8_akx_ZbbvsQCD);
+   fChain->SetBranchAddress("jetAK8_akx_HbbvsQCD", &jetAK8_akx_HbbvsQCD, &b_jetAK8_akx_HbbvsQCD);
+   fChain->SetBranchAddress("jetAK8_akx_H4qvsQCD", &jetAK8_akx_H4qvsQCD, &b_jetAK8_akx_H4qvsQCD);
+   fChain->SetBranchAddress("jetAK8_akx_probWcq", &jetAK8_akx_probWcq, &b_jetAK8_akx_probWcq);
+   fChain->SetBranchAddress("jetAK8_akx_probWqq", &jetAK8_akx_probWqq, &b_jetAK8_akx_probWqq);
+   fChain->SetBranchAddress("jetAK8_akx_probZbb", &jetAK8_akx_probZbb, &b_jetAK8_akx_probZbb);
+   fChain->SetBranchAddress("jetAK8_akx_probZcc", &jetAK8_akx_probZcc, &b_jetAK8_akx_probZcc);
+   fChain->SetBranchAddress("jetAK8_akx_probZqq", &jetAK8_akx_probZqq, &b_jetAK8_akx_probZqq);
+   fChain->SetBranchAddress("jetAK8_akx_probHbb", &jetAK8_akx_probHbb, &b_jetAK8_akx_probHbb);
+   
    fChain->SetBranchAddress("jetAK8_tau1", &jetAK8_tau1, &b_jetAK8_tau1);
    fChain->SetBranchAddress("jetAK8_tau2", &jetAK8_tau2, &b_jetAK8_tau2);
    fChain->SetBranchAddress("jetAK8_tau3", &jetAK8_tau3, &b_jetAK8_tau3);
-   fChain->SetBranchAddress("jetAK8_pruned_mass", &jetAK8_pruned_mass, &b_jetAK8_pruned_mass);
-   fChain->SetBranchAddress("jetAK8_pruned_massCorr", &jetAK8_pruned_massCorr, &b_jetAK8_pruned_massCorr);
-   fChain->SetBranchAddress("jetAK8_pruned_jec", &jetAK8_pruned_jec, &b_jetAK8_pruned_jec);
-   fChain->SetBranchAddress("jetAK8_pruned_jecUp", &jetAK8_pruned_jecUp, &b_jetAK8_pruned_jecUp);
-   fChain->SetBranchAddress("jetAK8_pruned_jecDown", &jetAK8_pruned_jecDown, &b_jetAK8_pruned_jecDown);
-   fChain->SetBranchAddress("jetAK8_softdrop_mass", &jetAK8_softdrop_mass, &b_jetAK8_softdrop_mass);
-   fChain->SetBranchAddress("jetAK8_softdrop_massCorr", &jetAK8_softdrop_massCorr, &b_jetAK8_softdrop_massCorr);
-   fChain->SetBranchAddress("jetAK8_softdrop_jec", &jetAK8_softdrop_jec, &b_jetAK8_softdrop_jec);
-   fChain->SetBranchAddress("jetAK8_softdrop_jecUp", &jetAK8_softdrop_jecUp, &b_jetAK8_softdrop_jecUp);
-   fChain->SetBranchAddress("jetAK8_softdrop_jecDown", &jetAK8_softdrop_jecDown, &b_jetAK8_softdrop_jecDown);
-   fChain->SetBranchAddress("jetAK8_subjet_softdrop_N", &jetAK8_subjet_softdrop_N, &b_jetAK8_subjet_softdrop_N);
-   fChain->SetBranchAddress("jetAK8_subjet_softdrop_pt", &jetAK8_subjet_softdrop_pt, &b_jetAK8_subjet_softdrop_pt);
-   fChain->SetBranchAddress("jetAK8_subjet_softdrop_eta", &jetAK8_subjet_softdrop_eta, &b_jetAK8_subjet_softdrop_eta);
-   fChain->SetBranchAddress("jetAK8_subjet_softdrop_mass", &jetAK8_subjet_softdrop_mass, &b_jetAK8_subjet_softdrop_mass);
-   fChain->SetBranchAddress("jetAK8_subjet_softdrop_phi", &jetAK8_subjet_softdrop_phi, &b_jetAK8_subjet_softdrop_phi);
-   fChain->SetBranchAddress("jetAK8_subjet_softdrop_e", &jetAK8_subjet_softdrop_e, &b_jetAK8_subjet_softdrop_e);
-   fChain->SetBranchAddress("jetAK8_subjet_softdrop_charge", &jetAK8_subjet_softdrop_charge, &b_jetAK8_subjet_softdrop_charge);
-   fChain->SetBranchAddress("jetAK8_subjet_softdrop_csv", &jetAK8_subjet_softdrop_csv, &b_jetAK8_subjet_softdrop_csv);
-   fChain->SetBranchAddress("jetAK8_puppi_pt", &jetAK8_puppi_pt, &b_jetAK8_puppi_pt);
-   fChain->SetBranchAddress("jetAK8_puppi_eta", &jetAK8_puppi_eta, &b_jetAK8_puppi_eta);
-   fChain->SetBranchAddress("jetAK8_puppi_mass", &jetAK8_puppi_mass, &b_jetAK8_puppi_mass);
-   fChain->SetBranchAddress("jetAK8_puppi_phi", &jetAK8_puppi_phi, &b_jetAK8_puppi_phi);
-   fChain->SetBranchAddress("jetAK8_puppi_e", &jetAK8_puppi_e, &b_jetAK8_puppi_e);
-   fChain->SetBranchAddress("jetAK8_puppi_pruned_mass", &jetAK8_puppi_pruned_mass, &b_jetAK8_puppi_pruned_mass);
-   fChain->SetBranchAddress("jetAK8_puppi_pruned_massCorr", &jetAK8_puppi_pruned_massCorr, &b_jetAK8_puppi_pruned_massCorr);
-   fChain->SetBranchAddress("jetAK8_puppi_pruned_jec", &jetAK8_puppi_pruned_jec, &b_jetAK8_puppi_pruned_jec);
-   fChain->SetBranchAddress("jetAK8_puppi_softdrop_mass", &jetAK8_puppi_softdrop_mass, &b_jetAK8_puppi_softdrop_mass);
-   fChain->SetBranchAddress("jetAK8_puppi_softdrop_massCorr", &jetAK8_puppi_softdrop_massCorr, &b_jetAK8_puppi_softdrop_massCorr);
-   fChain->SetBranchAddress("jetAK8_puppi_softdrop_jec", &jetAK8_puppi_softdrop_jec, &b_jetAK8_puppi_softdrop_jec);
-   fChain->SetBranchAddress("jetAK8_puppi_tau1", &jetAK8_puppi_tau1, &b_jetAK8_puppi_tau1);
-   fChain->SetBranchAddress("jetAK8_puppi_tau2", &jetAK8_puppi_tau2, &b_jetAK8_puppi_tau2);
-   fChain->SetBranchAddress("jetAK8_puppi_tau3", &jetAK8_puppi_tau3, &b_jetAK8_puppi_tau3);
-   fChain->SetBranchAddress("jetAK8_subjet_puppi_softdrop_N", &jetAK8_subjet_puppi_softdrop_N, &b_jetAK8_subjet_puppi_softdrop_N);
-   fChain->SetBranchAddress("jetAK8_subjet_puppi_softdrop_pt", &jetAK8_subjet_puppi_softdrop_pt, &b_jetAK8_subjet_puppi_softdrop_pt);
-   fChain->SetBranchAddress("jetAK8_subjet_puppi_softdrop_eta", &jetAK8_subjet_puppi_softdrop_eta, &b_jetAK8_subjet_puppi_softdrop_eta);
-   fChain->SetBranchAddress("jetAK8_subjet_puppi_softdrop_mass", &jetAK8_subjet_puppi_softdrop_mass, &b_jetAK8_subjet_puppi_softdrop_mass);
-   fChain->SetBranchAddress("jetAK8_subjet_puppi_softdrop_phi", &jetAK8_subjet_puppi_softdrop_phi, &b_jetAK8_subjet_puppi_softdrop_phi);
-   fChain->SetBranchAddress("jetAK8_subjet_puppi_softdrop_e", &jetAK8_subjet_puppi_softdrop_e, &b_jetAK8_subjet_puppi_softdrop_e);
-   fChain->SetBranchAddress("jetAK8_subjet_puppi_softdrop_charge", &jetAK8_subjet_puppi_softdrop_charge, &b_jetAK8_subjet_puppi_softdrop_charge);
-   fChain->SetBranchAddress("jetAK8_subjet_puppi_softdrop_csv", &jetAK8_subjet_puppi_softdrop_csv, &b_jetAK8_subjet_puppi_softdrop_csv);
-   fChain->SetBranchAddress("jetAK8_subjet_pruned_N", &jetAK8_subjet_pruned_N, &b_jetAK8_subjet_pruned_N);
-   fChain->SetBranchAddress("jetAK8_subjet_pruned_pt", &jetAK8_subjet_pruned_pt, &b_jetAK8_subjet_pruned_pt);
-   fChain->SetBranchAddress("jetAK8_subjet_pruned_eta", &jetAK8_subjet_pruned_eta, &b_jetAK8_subjet_pruned_eta);
-   fChain->SetBranchAddress("jetAK8_subjet_pruned_mass", &jetAK8_subjet_pruned_mass, &b_jetAK8_subjet_pruned_mass);
-   fChain->SetBranchAddress("jetAK8_subjet_pruned_phi", &jetAK8_subjet_pruned_phi, &b_jetAK8_subjet_pruned_phi);
-   fChain->SetBranchAddress("jetAK8_subjet_pruned_e", &jetAK8_subjet_pruned_e, &b_jetAK8_subjet_pruned_e);
-   fChain->SetBranchAddress("jetAK8_subjet_pruned_charge", &jetAK8_subjet_pruned_charge, &b_jetAK8_subjet_pruned_charge);
-   fChain->SetBranchAddress("jetAK8_subjet_pruned_csv", &jetAK8_subjet_pruned_csv, &b_jetAK8_subjet_pruned_csv);
+   //fChain->SetBranchAddress("jetAK8_pruned_mass", &jetAK8_pruned_mass, &b_jetAK8_pruned_mass);
+   //fChain->SetBranchAddress("jetAK8_pruned_massCorr", &jetAK8_pruned_massCorr, &b_jetAK8_pruned_massCorr);
+   //fChain->SetBranchAddress("jetAK8_pruned_jec", &jetAK8_pruned_jec, &b_jetAK8_pruned_jec);
+   //fChain->SetBranchAddress("jetAK8_pruned_jecUp", &jetAK8_pruned_jecUp, &b_jetAK8_pruned_jecUp);
+   //fChain->SetBranchAddress("jetAK8_pruned_jecDown", &jetAK8_pruned_jecDown, &b_jetAK8_pruned_jecDown);
+   //fChain->SetBranchAddress("jetAK8_softdrop_mass", &jetAK8_softdrop_mass, &b_jetAK8_softdrop_mass);
+   //fChain->SetBranchAddress("jetAK8_softdrop_massCorr", &jetAK8_softdrop_massCorr, &b_jetAK8_softdrop_massCorr);
+   //fChain->SetBranchAddress("jetAK8_softdrop_jec", &jetAK8_softdrop_jec, &b_jetAK8_softdrop_jec);
+   //fChain->SetBranchAddress("jetAK8_softdrop_jecUp", &jetAK8_softdrop_jecUp, &b_jetAK8_softdrop_jecUp);
+   //fChain->SetBranchAddress("jetAK8_softdrop_jecDown", &jetAK8_softdrop_jecDown, &b_jetAK8_softdrop_jecDown);
+   //fChain->SetBranchAddress("jetAK8_subjet_softdrop_N", &jetAK8_subjet_softdrop_N, &b_jetAK8_subjet_softdrop_N);
+   //fChain->SetBranchAddress("jetAK8_subjet_softdrop_pt", &jetAK8_subjet_softdrop_pt, &b_jetAK8_subjet_softdrop_pt);
+   //fChain->SetBranchAddress("jetAK8_subjet_softdrop_eta", &jetAK8_subjet_softdrop_eta, &b_jetAK8_subjet_softdrop_eta);
+   //fChain->SetBranchAddress("jetAK8_subjet_softdrop_mass", &jetAK8_subjet_softdrop_mass, &b_jetAK8_subjet_softdrop_mass);
+   //fChain->SetBranchAddress("jetAK8_subjet_softdrop_phi", &jetAK8_subjet_softdrop_phi, &b_jetAK8_subjet_softdrop_phi);
+   //fChain->SetBranchAddress("jetAK8_subjet_softdrop_e", &jetAK8_subjet_softdrop_e, &b_jetAK8_subjet_softdrop_e);
+   //fChain->SetBranchAddress("jetAK8_subjet_softdrop_charge", &jetAK8_subjet_softdrop_charge, &b_jetAK8_subjet_softdrop_charge);
+   //fChain->SetBranchAddress("jetAK8_subjet_softdrop_csv", &jetAK8_subjet_softdrop_csv, &b_jetAK8_subjet_softdrop_csv);
+   //fChain->SetBranchAddress("jetAK8_puppi_pt", &jetAK8_puppi_pt, &b_jetAK8_puppi_pt);
+   //fChain->SetBranchAddress("jetAK8_puppi_eta", &jetAK8_puppi_eta, &b_jetAK8_puppi_eta);
+   //fChain->SetBranchAddress("jetAK8_puppi_mass", &jetAK8_puppi_mass, &b_jetAK8_puppi_mass);
+   //fChain->SetBranchAddress("jetAK8_puppi_phi", &jetAK8_puppi_phi, &b_jetAK8_puppi_phi);
+   //fChain->SetBranchAddress("jetAK8_puppi_e", &jetAK8_puppi_e, &b_jetAK8_puppi_e);
+   //fChain->SetBranchAddress("jetAK8_puppi_pruned_mass", &jetAK8_puppi_pruned_mass, &b_jetAK8_puppi_pruned_mass);
+   //fChain->SetBranchAddress("jetAK8_puppi_pruned_massCorr", &jetAK8_puppi_pruned_massCorr, &b_jetAK8_puppi_pruned_massCorr);
+   //fChain->SetBranchAddress("jetAK8_puppi_pruned_jec", &jetAK8_puppi_pruned_jec, &b_jetAK8_puppi_pruned_jec);
+   //fChain->SetBranchAddress("jetAK8_puppi_softdrop_mass", &jetAK8_puppi_softdrop_mass, &b_jetAK8_puppi_softdrop_mass);
+   //fChain->SetBranchAddress("jetAK8_puppi_softdrop_massCorr", &jetAK8_puppi_softdrop_massCorr, &b_jetAK8_puppi_softdrop_massCorr);
+   //fChain->SetBranchAddress("jetAK8_puppi_softdrop_jec", &jetAK8_puppi_softdrop_jec, &b_jetAK8_puppi_softdrop_jec);
+   //fChain->SetBranchAddress("jetAK8_puppi_tau1", &jetAK8_puppi_tau1, &b_jetAK8_puppi_tau1);
+   //fChain->SetBranchAddress("jetAK8_puppi_tau2", &jetAK8_puppi_tau2, &b_jetAK8_puppi_tau2);
+   //fChain->SetBranchAddress("jetAK8_puppi_tau3", &jetAK8_puppi_tau3, &b_jetAK8_puppi_tau3);
+   //fChain->SetBranchAddress("jetAK8_subjet_puppi_softdrop_N", &jetAK8_subjet_puppi_softdrop_N, &b_jetAK8_subjet_puppi_softdrop_N);
+   //fChain->SetBranchAddress("jetAK8_subjet_puppi_softdrop_pt", &jetAK8_subjet_puppi_softdrop_pt, &b_jetAK8_subjet_puppi_softdrop_pt);
+   //fChain->SetBranchAddress("jetAK8_subjet_puppi_softdrop_eta", &jetAK8_subjet_puppi_softdrop_eta, &b_jetAK8_subjet_puppi_softdrop_eta);
+   //fChain->SetBranchAddress("jetAK8_subjet_puppi_softdrop_mass", &jetAK8_subjet_puppi_softdrop_mass, &b_jetAK8_subjet_puppi_softdrop_mass);
+   //fChain->SetBranchAddress("jetAK8_subjet_puppi_softdrop_phi", &jetAK8_subjet_puppi_softdrop_phi, &b_jetAK8_subjet_puppi_softdrop_phi);
+   //fChain->SetBranchAddress("jetAK8_subjet_puppi_softdrop_e", &jetAK8_subjet_puppi_softdrop_e, &b_jetAK8_subjet_puppi_softdrop_e);
+   //fChain->SetBranchAddress("jetAK8_subjet_puppi_softdrop_charge", &jetAK8_subjet_puppi_softdrop_charge, &b_jetAK8_subjet_puppi_softdrop_charge);
+   //fChain->SetBranchAddress("jetAK8_subjet_puppi_softdrop_csv", &jetAK8_subjet_puppi_softdrop_csv, &b_jetAK8_subjet_puppi_softdrop_csv);
+   //fChain->SetBranchAddress("jetAK8_subjet_pruned_N", &jetAK8_subjet_pruned_N, &b_jetAK8_subjet_pruned_N);
+   //fChain->SetBranchAddress("jetAK8_subjet_pruned_pt", &jetAK8_subjet_pruned_pt, &b_jetAK8_subjet_pruned_pt);
+   //fChain->SetBranchAddress("jetAK8_subjet_pruned_eta", &jetAK8_subjet_pruned_eta, &b_jetAK8_subjet_pruned_eta);
+   //fChain->SetBranchAddress("jetAK8_subjet_pruned_mass", &jetAK8_subjet_pruned_mass, &b_jetAK8_subjet_pruned_mass);
+   //fChain->SetBranchAddress("jetAK8_subjet_pruned_phi", &jetAK8_subjet_pruned_phi, &b_jetAK8_subjet_pruned_phi);
+   //fChain->SetBranchAddress("jetAK8_subjet_pruned_e", &jetAK8_subjet_pruned_e, &b_jetAK8_subjet_pruned_e);
+   //fChain->SetBranchAddress("jetAK8_subjet_pruned_charge", &jetAK8_subjet_pruned_charge, &b_jetAK8_subjet_pruned_charge);
+   //fChain->SetBranchAddress("jetAK8_subjet_pruned_csv", &jetAK8_subjet_pruned_csv, &b_jetAK8_subjet_pruned_csv);
    fChain->SetBranchAddress("HLT_isFired", &HLT_isFired, &b_HLT_isFired);
-   fChain->SetBranchAddress("passFilter_HBHE", &passFilter_HBHE, &b_passFilter_HBHE_);
-   fChain->SetBranchAddress("passFilter_HBHELoose", &passFilter_HBHELoose, &b_passFilter_HBHELoose_);
-   fChain->SetBranchAddress("passFilter_HBHETight", &passFilter_HBHETight, &b_passFilter_HBHETight_);
-   fChain->SetBranchAddress("passFilter_HBHEIso", &passFilter_HBHEIso, &b_passFilter_HBHEIso_);
-   fChain->SetBranchAddress("passFilter_CSCHalo", &passFilter_CSCHalo, &b_passFilter_CSCHalo_);
-   fChain->SetBranchAddress("passFilter_CSCTightHalo2015", &passFilter_CSCTightHalo2015, &b_passFilter_CSCTightHalo2015_);
-   fChain->SetBranchAddress("passFilter_HCALlaser", &passFilter_HCALlaser, &b_passFilter_HCALlaser_);
-   fChain->SetBranchAddress("passFilter_ECALDeadCell", &passFilter_ECALDeadCell, &b_passFilter_ECALDeadCell_);
-   fChain->SetBranchAddress("passFilter_GoodVtx", &passFilter_GoodVtx, &b_passFilter_GoodVtx_);
-   fChain->SetBranchAddress("passFilter_TrkFailure", &passFilter_TrkFailure, &b_passFilter_TrkFailure_);
-   fChain->SetBranchAddress("passFilter_EEBadSc", &passFilter_EEBadSc, &b_passFilter_EEBadSc_);
-   fChain->SetBranchAddress("passFilter_ECALlaser", &passFilter_ECALlaser, &b_passFilter_ECALlaser_);
-   fChain->SetBranchAddress("passFilter_TrkPOG", &passFilter_TrkPOG, &b_passFilter_TrkPOG_);
-   fChain->SetBranchAddress("passFilter_TrkPOG_manystrip", &passFilter_TrkPOG_manystrip, &b_passFilter_TrkPOG_manystrip_);
-   fChain->SetBranchAddress("passFilter_TrkPOG_toomanystrip", &passFilter_TrkPOG_toomanystrip, &b_passFilter_TrkPOG_toomanystrip_);
-   fChain->SetBranchAddress("passFilter_TrkPOG_logError", &passFilter_TrkPOG_logError, &b_passFilter_TrkPOG_logError_);
-   fChain->SetBranchAddress("passFilter_METFilters", &passFilter_METFilters, &b_passFilter_METFilters_);
-   fChain->SetBranchAddress("passFilter_CSCTightHaloTrkMuUnvetoFilter", &passFilter_CSCTightHaloTrkMuUnvetoFilter, &b_passFilter_CSCTightHaloTrkMuUnvetoFilter_);
-   fChain->SetBranchAddress("passFilter_globalTightHalo2016", &passFilter_globalTightHalo2016, &b_passFilter_globalTightHalo2016_);
-   fChain->SetBranchAddress("passFilter_HcalStripHalo", &passFilter_HcalStripHalo, &b_passFilter_HcalStripHalo_);
-   fChain->SetBranchAddress("passFilter_chargedHadronTrackResolution", &passFilter_chargedHadronTrackResolution, &b_passFilter_chargedHadronTrackResolution_);
-   fChain->SetBranchAddress("passFilter_muonBadTrack", &passFilter_muonBadTrack, &b_passFilter_muonBadTrack_);
+   //fChain->SetBranchAddress("passFilter_HBHE", &passFilter_HBHE, &b_passFilter_HBHE_);
+   //fChain->SetBranchAddress("passFilter_HBHELoose", &passFilter_HBHELoose, &b_passFilter_HBHELoose_);
+   //fChain->SetBranchAddress("passFilter_HBHETight", &passFilter_HBHETight, &b_passFilter_HBHETight_);
+   //fChain->SetBranchAddress("passFilter_HBHEIso", &passFilter_HBHEIso, &b_passFilter_HBHEIso_);
+   //fChain->SetBranchAddress("passFilter_CSCHalo", &passFilter_CSCHalo, &b_passFilter_CSCHalo_);
+   //fChain->SetBranchAddress("passFilter_CSCTightHalo2015", &passFilter_CSCTightHalo2015, &b_passFilter_CSCTightHalo2015_);
+   //fChain->SetBranchAddress("passFilter_HCALlaser", &passFilter_HCALlaser, &b_passFilter_HCALlaser_);
+   //fChain->SetBranchAddress("passFilter_ECALDeadCell", &passFilter_ECALDeadCell, &b_passFilter_ECALDeadCell_);
+   //fChain->SetBranchAddress("passFilter_GoodVtx", &passFilter_GoodVtx, &b_passFilter_GoodVtx_);
+   //fChain->SetBranchAddress("passFilter_TrkFailure", &passFilter_TrkFailure, &b_passFilter_TrkFailure_);
+   //fChain->SetBranchAddress("passFilter_EEBadSc", &passFilter_EEBadSc, &b_passFilter_EEBadSc_);
+   //fChain->SetBranchAddress("passFilter_ECALlaser", &passFilter_ECALlaser, &b_passFilter_ECALlaser_);
+   //fChain->SetBranchAddress("passFilter_TrkPOG", &passFilter_TrkPOG, &b_passFilter_TrkPOG_);
+   //fChain->SetBranchAddress("passFilter_TrkPOG_manystrip", &passFilter_TrkPOG_manystrip, &b_passFilter_TrkPOG_manystrip_);
+   //fChain->SetBranchAddress("passFilter_TrkPOG_toomanystrip", &passFilter_TrkPOG_toomanystrip, &b_passFilter_TrkPOG_toomanystrip_);
+   //fChain->SetBranchAddress("passFilter_TrkPOG_logError", &passFilter_TrkPOG_logError, &b_passFilter_TrkPOG_logError_);
+   //fChain->SetBranchAddress("passFilter_METFilters", &passFilter_METFilters, &b_passFilter_METFilters_);
+   //fChain->SetBranchAddress("passFilter_CSCTightHaloTrkMuUnvetoFilter", &passFilter_CSCTightHaloTrkMuUnvetoFilter, &b_passFilter_CSCTightHaloTrkMuUnvetoFilter_);
+   //fChain->SetBranchAddress("passFilter_globalTightHalo2016", &passFilter_globalTightHalo2016, &b_passFilter_globalTightHalo2016_);
+   //fChain->SetBranchAddress("passFilter_HcalStripHalo", &passFilter_HcalStripHalo, &b_passFilter_HcalStripHalo_);
+   //fChain->SetBranchAddress("passFilter_chargedHadronTrackResolution", &passFilter_chargedHadronTrackResolution, &b_passFilter_chargedHadronTrackResolution_);
+   //fChain->SetBranchAddress("passFilter_muonBadTrack", &passFilter_muonBadTrack, &b_passFilter_muonBadTrack_);
    fChain->SetBranchAddress("EVENT_event", &EVENT_event, &b_EVENT_event);
    fChain->SetBranchAddress("EVENT_run", &EVENT_run, &b_EVENT_run);
    fChain->SetBranchAddress("EVENT_lumiBlock", &EVENT_lumiBlock, &b_EVENT_lumiBlock);

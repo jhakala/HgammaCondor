@@ -17,11 +17,8 @@ if options.configFile is None:
   print "please specify a configuration file with the -c option"
   exit(1)
 
-from ConfigParser import RawConfigParser
-config = RawConfigParser()
-config.optionxform = str
-config.read(options.configFile)
-configDict =  dict([key, directory] for key, directory in config.items('dirs'))
+from parseConfigIni import parseIni
+configDict =  parseIni(options.configFile)
 
 if options.doDirSplitting:
   from makeAllSmallerDirs import makeAllSmallerDirs
@@ -31,13 +28,14 @@ if options.doDirSplitting:
 import datetime
 today = datetime.date.today()
 
-for dataset in configDict:
+for dataset in configDict.keys():
   outScript = open("h_%s.sh" % dataset, "w")
   chmod(outScript.name, 0o744) 
   outJdl = open("c_%s.jdl" % dataset, "w")
   if options.magicNumber>1:
-    outScript.write(simpleScript("python runSmallify.py %s_${1} smallified_%s_${1}.root" % (dataset, dataset), getcwd()))
-    outJdl.write(queueJdl(outScript.name, options.magicNumber))
+    outFileName = "smallified_%s_${1}.root" % dataset
+    outScript.write(lpcScript("python runSmallify.py %s %s %i ${1}" % (configDict[dataset], outFileName, options.magicNumber), outFileName))
+    outJdl.write(queueJdl(outScript.name, options.magicNumber, True))
   elif options.magicNumber==1:
     outScript.write(simpleScript("python runSmallify.py %s smallified_%s.root" % (configDict[dataset], dataset), getcwd()))
     outJdl.write(simpleJdl(outScript.name))
