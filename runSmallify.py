@@ -16,6 +16,8 @@ parser.add_argument("-q", dest = "queueNumber",
                     help = "queue number", required=True)
 parser.add_argument("-c", dest = "cluster",
                     help = "cluster", required=True)
+parser.add_argument("-l", dest = "location",
+                    help = "location of data if not local. 'bruxisilon'")
 args = parser.parse_args()
 
 magicNumber = int(args.magicNumber)
@@ -56,8 +58,34 @@ def bruxIsilonInputs(inDirName):
       print "   > skipping", f
     iFile += 1
 
+
+def bruxGfalInputs(inDirName):
+  from subprocess import check_output
+  import shlex
+  gfalList = check_output(shlex.split("gfal-ls 'gsiftp://brux11.hep.brown.edu%s'" % inDirName)).splitlines()
+
+  print "doing round-robin inputs."
+  iFile = 0
+  inputReport = ""
+  for f in sorted(gfalList):
+    if (iFile+queueNumber) % magicNumber == 0:
+      if "flatTuple" in f and ".root" in f:
+        inputReport += "   > processing " + f
+        print "     ## downloading ", f
+        inFiles.append(f)
+        print check_output(shlex.split("gfal-copy -p -v -t 180 'gsiftp://brux11.hep.brown.edu%s/%s' ." % (inDirName, f)))
+      else:
+        inputReport += "   > ignoring directory " + f
+    else:
+      inputReport += "   > skipping " + f
+    iFile += 1
+  print inputReport
+
 if args.cluster == "lpc":
-  lpcEosInputs(args.inDirName)
+  if args.location == "bruxisilon":
+    bruxGfalInputs(args.inDirName)
+  else:
+    lpcEosInputs(args.inDirName)
 elif args.cluster == "brux":
   bruxIsilonInputs(args.inDirName)
 else:

@@ -17,8 +17,9 @@ parser.add_argument("-x", "--cluster", dest = "cluster",
 args = parser.parse_args()
 
 
-from parseConfigIni import parseIni
+from parseConfigIni import parseIni, getLocation
 configDict =  parseIni(args.configFile)
+location =  getLocation(args.configFile)
 
 if args.doDirSplitting:
   from makeAllSmallerDirs import makeAllSmallerDirs
@@ -29,12 +30,12 @@ import datetime
 today = datetime.date.today()
 
 for dataset in configDict.keys():
-  outScript = open("h_%s.sh" % dataset, "w")
+  outScript = open("condor-area/h_%s.sh" % dataset, "w")
   chmod(outScript.name, 0o744) 
-  outJdl = open("c_%s.jdl" % dataset, "w")
+  outJdl = open("condor-area/c_%s.jdl" % dataset, "w")
   if args.magicNumber>1:
     outFileName = "smallified_%s_${1}.root" % dataset
-    outScript.write(lpcScript("python runSmallify.py -i %s -o %s -m %i -c %s -q ${1}" % (configDict[dataset], outFileName, args.magicNumber, args.cluster), outFileName))
+    outScript.write(lpcScript("python runSmallify.py -i %s -o %s -m %i -c %s -l %s -q ${1}" % (configDict[dataset], outFileName, args.magicNumber, args.cluster, location), outFileName))
     outJdl.write(queueJdl(outScript.name, args.magicNumber, True))
   elif args.magicNumber==1:
     outScript.write(simpleScript("python runSmallify.py %s smallified_%s.root" % (configDict[dataset], dataset), getcwd()))

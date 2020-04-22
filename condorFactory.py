@@ -57,7 +57,11 @@ if [[ $? -ne 0 ]] ; then
     exit 1
 fi
 cd tarball-area
-source /cvmfs/sft.cern.ch/lcg/views/LCG_95a/x86_64-slc6-gcc8-opt/setup.sh
+source /cvmfs/cms.cern.ch/cmsset_default.sh
+scramv1 project CMSSW CMSSW_9_4_16
+pushd CMSSW_9_4_16/src
+eval `scramv1 runtime -sh`
+popd
 %s
 if [[ $? -ne 0 ]] ; then
     exit 1
