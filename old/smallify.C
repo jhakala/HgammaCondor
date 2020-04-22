@@ -9,38 +9,39 @@
 using namespace std;
 
 void smallify::Loop(std::string outputFileName) {
-//     This is the loop skeleton where:
-//    jentry is the global entry number in the chain
-//    ientry is the entry number in the current Tree
-//  Note that the argument to GetEntry must be:
-//    jentry for TChain::GetEntry
+  //   This is the loop skeleton where:
+  //     jentry is the global entry number in the chain
+  //     ientry is the entry number in the current Tree
+  //   Note that the argument to GetEntry must be:
+  //     jentry for TChain::GetEntry
+  //     ientry for TTree::GetEntry and TBranch::GetEntry
   fChain->SetBranchStatus("*",0);  // disable all branches
   fChain->SetBranchStatus("HLT_isFired"                  , 1);  
-
-
-
-
-
-
-
+  //fChain->SetBranchStatus("passFilter_GoodVtx"           , 1);  
+  //fChain->SetBranchStatus("passFilter_CSCTightHalo2015"  , 1);  
+  //fChain->SetBranchStatus("passFilter_muonBadTrack"      , 1);  
+  //fChain->SetBranchStatus("passFilter_HBHE"              , 1);  
+  //fChain->SetBranchStatus("passFilter_HBHEIso"           , 1);  
+  //fChain->SetBranchStatus("passFilter_EEBadSc"           , 1);  
+  //fChain->SetBranchStatus("passFilter_EEBadSc"           , 1);  
   fChain->SetBranchStatus("jetAK8_IDLoose"               , 1);
   fChain->SetBranchStatus("ph_mvaVal"                    , 1);
   fChain->SetBranchStatus("ph_mvaCat"                    , 1);
   fChain->SetBranchStatus("ph_passEleVeto"               , 1);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  //fChain->SetBranchStatus("genParticle_dau"              , 1);
+  //fChain->SetBranchStatus("lheV_pt"                      , 1);
+  //fChain->SetBranchStatus("lheHT"                        , 1);
+  //fChain->SetBranchStatus("lheNj"                        , 1);
+  //fChain->SetBranchStatus("genWeight"                    , 1);
+  //fChain->SetBranchStatus("qScale"                       , 1);
+  //fChain->SetBranchStatus("PDF_x"                        , 1);
+  //fChain->SetBranchStatus("PDF_xPDF"                     , 1);
+  //fChain->SetBranchStatus("PDF_id"                       , 1);
+  //fChain->SetBranchStatus("jetAK4_partonFlavour"         , 1);
+  //fChain->SetBranchStatus("jetAK4_hadronFlavour"         , 1);
+  //fChain->SetBranchStatus("jetAK4_genParton_pdgID"       , 1);
+  //fChain->SetBranchStatus("jetAK4_nbHadrons"             , 1);
+  //fChain->SetBranchStatus("jetAK4_ncHadrons"             , 1);
   fChain->SetBranchStatus("ph_N"                         , 1);
   fChain->SetBranchStatus("ph_pdgId"                     , 1);
   fChain->SetBranchStatus("ph_charge"                    , 1);
@@ -64,22 +65,22 @@ void smallify::Loop(std::string outputFileName) {
   fChain->SetBranchStatus("ph_mvaVal"                    , 1);
   fChain->SetBranchStatus("ph_mvaCat"                    , 1);
   fChain->SetBranchStatus("rho"                          , 1);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  //fChain->SetBranchStatus("jetAK4_N"                     , 1);
+  //fChain->SetBranchStatus("jetAK4_pt"                    , 1);
+  //fChain->SetBranchStatus("jetAK4_eta"                   , 1);
+  //fChain->SetBranchStatus("jetAK4_mass"                  , 1);
+  //fChain->SetBranchStatus("jetAK4_phi"                   , 1);
+  //fChain->SetBranchStatus("jetAK4_e"                     , 1);
+  //fChain->SetBranchStatus("jetAK4_jec"                   , 1);
+  //fChain->SetBranchStatus("jetAK4_IDLoose"               , 1);
+  //fChain->SetBranchStatus("jetAK4_IDTight"               , 1);
+  //fChain->SetBranchStatus("jetAK4_IDTightLepVeto"        , 1);
+  //fChain->SetBranchStatus("jetAK4_charge"                , 1);
+  ////fChain->SetBranchStatus("jetAK4_cisv"                  , 1);
+  //fChain->SetBranchStatus("jetAK4_vtxMass"               , 1);
+  //fChain->SetBranchStatus("jetAK4_vtxNtracks"            , 1);
+  //fChain->SetBranchStatus("jetAK4_vtx3DVal"              , 1);
+  //fChain->SetBranchStatus("jetAK4_vtx3DSig"              , 1);
   fChain->SetBranchStatus("jetAK8_N"                     , 1);
   fChain->SetBranchStatus("jetAK8_pt"                    , 1);
   fChain->SetBranchStatus("jetAK8_eta"                   , 1);
@@ -114,25 +115,25 @@ void smallify::Loop(std::string outputFileName) {
   fChain->SetBranchStatus("jetAK8_tau1"                  , 1);
   fChain->SetBranchStatus("jetAK8_tau2"                  , 1);
   fChain->SetBranchStatus("jetAK8_tau3"                  , 1);
-
-
-
-
-
+  //fChain->SetBranchStatus("jetAK8_pruned_mass"           , 1);
+  //fChain->SetBranchStatus("jetAK8_pruned_massCorr"       , 1);
+  //fChain->SetBranchStatus("jetAK8_pruned_jec"            , 1);
+  //fChain->SetBranchStatus("jetAK8_pruned_jecUp"          , 1);
+  //fChain->SetBranchStatus("jetAK8_pruned_jecDown"        , 1);
   fChain->SetBranchStatus("jetAK8_softdrop_mass"         , 1);
   fChain->SetBranchStatus("jetAK8_softdrop_massCorr"     , 1);
   fChain->SetBranchStatus("jetAK8_softdrop_jec"          , 1);
   fChain->SetBranchStatus("jetAK8_softdrop_jecUp"          , 1);
   fChain->SetBranchStatus("jetAK8_softdrop_jecDown"          , 1);
-
-
-
-
-
-
-
-
-
+  //fChain->SetBranchStatus("jetAK8_puppi_pt"                , 1);
+  //fChain->SetBranchStatus("jetAK8_puppi_softdrop_mass"     , 1);
+  //fChain->SetBranchStatus("jetAK8_puppi_softdrop_massCorr" , 1);
+  //fChain->SetBranchStatus("jetAK8_puppi_e"                 , 1);
+  //fChain->SetBranchStatus("jetAK8_puppi_eta"               , 1);
+  //fChain->SetBranchStatus("jetAK8_puppi_phi"               , 1);
+  //fChain->SetBranchStatus("jetAK8_puppi_tau1"              , 1);
+  //fChain->SetBranchStatus("jetAK8_puppi_tau2"              , 1);
+  //fChain->SetBranchStatus("jetAK8_puppi_tau3 "             , 1);
   fChain->SetBranchStatus("EVENT_event"                  , 1);
   fChain->SetBranchStatus("EVENT_run"                    , 1);
   fChain->SetBranchStatus("EVENT_lumiBlock"              , 1);
@@ -147,6 +148,7 @@ void smallify::Loop(std::string outputFileName) {
   dir->cd();
   TTree* skimTree = fChain->CloneTree(0);
 
+
   for (Long64_t jentry=0; jentry<nentries;++jentry) {
     if (stopAfter==jentry) break;
     Long64_t ientry = LoadTree(jentry);
@@ -159,7 +161,6 @@ void smallify::Loop(std::string outputFileName) {
     if (useTriggerInfo) {
       passTrig = false;
       for(map<string,bool>::iterator it = HLT_isFired->begin(); it != HLT_isFired->end(); ++it) {
-        std::cout << it->first << std::endl;
         if (it->first.find("HLT_Photon200_") != string::npos)   {
           passTrig |= (1==it->second);
         }

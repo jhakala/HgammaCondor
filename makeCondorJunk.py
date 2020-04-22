@@ -29,9 +29,9 @@ import datetime
 today = datetime.date.today()
 
 for dataset in configDict.keys():
-  outScript = open("h_%s.sh" % dataset, "w")
+  outScript = open("condor-area/h_%s.sh" % dataset, "w")
   chmod(outScript.name, 0o744) 
-  outJdl = open("c_%s.jdl" % dataset, "w")
+  outJdl = open("condor-area/c_%s.jdl" % dataset, "w")
   if args.magicNumber>1:
     outFileName = "smallified_%s_${1}.root" % dataset
     outScript.write(lpcScript("python runSmallify.py -i %s -o %s -m %i -c %s -q ${1}" % (configDict[dataset], outFileName, args.magicNumber, args.cluster), outFileName))

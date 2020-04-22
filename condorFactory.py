@@ -1,16 +1,17 @@
+from os.path import basename
 def simpleJdl(scriptName):
   return """universe = vanilla
-Executable = %s 
+Executable = {0} 
 Should_Transfer_Files = YES
 WhenToTransferOutput = ON_EXIT
 Notification = Error
  
-Output = condorLogs/log.%s.$(Cluster).$(Process).stdout
-Error = condorLogs/log.%s.$(Cluster).$(Process).stderr
-Log = condorLogs/log.%s.$(Cluster).$(Process).condorlog
+Output = condorLogs/log.{1}.$(Cluster).$(Process).stdout
+Error = condorLogs/log.{1}.$(Cluster).$(Process).stderr
+Log = condorLogs/log.{1}.$(Cluster).$(Process).condorlog
 
 Queue 1
-""" % (scriptName, scriptName, scriptName, scriptName)
+""".format(scriptName, basename(scriptName))
 
 def queueJdl(scriptName, queue, lpcMode=False):
   output= """universe = vanilla
@@ -28,12 +29,12 @@ transfer_input_files = smallifyTarball.tar
   output+="""
 arguments = $(Process)
  
-Output = condorLogs/log.{0}.$(Cluster).$(Process).stdout
-Error = condorLogs/log.{0}.$(Cluster).$(Process).stderr
-Log = condorLogs/log.{0}.$(Cluster).$(Process).condorlog
+Output = condorLogs/log.{1}.$(Cluster).$(Process).stdout
+Error = condorLogs/log.{1}.$(Cluster).$(Process).stderr
+Log = condorLogs/log.{1}.$(Cluster).$(Process).condorlog
 
-Queue {1}
-""" .format(scriptName, queue)
+Queue {2}
+""" .format(scriptName, basename(scriptName),  queue)
 
   return output
 
@@ -57,7 +58,11 @@ if [[ $? -ne 0 ]] ; then
     exit 1
 fi
 cd tarball-area
-source /cvmfs/sft.cern.ch/lcg/views/LCG_95a/x86_64-slc6-gcc8-opt/setup.sh
+/cvmfs/cms.cern.ch/cmsset_default.sh
+scramv1 project CMSSW CMSSW_9_4_16
+pushd CMSSW_9_4_16/src
+eval `scramv1 runtime -sh`
+popd
 %s
 if [[ $? -ne 0 ]] ; then
     exit 1

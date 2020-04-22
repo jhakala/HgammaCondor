@@ -33,8 +33,11 @@ def lpcEosInputs(inDirName):
   iFile = 0
   for f in eoslist:
     if (iFile+queueNumber) % magicNumber == 0:
-      inFiles.append("root://cmseos.fnal.gov//" + join(inDirName, f))
-      print "   > processing ", f
+      if ".root" in f[-5:]:
+        inFiles.append("root://cmseos.fnal.gov//" + join(inDirName, f))
+        print "   > processing ", f
+      else:
+        print "   > skipping ", f, "since it is probably a log dir and not a .root file"
     else:
       print "   > skipping", f
     iFile += 1
