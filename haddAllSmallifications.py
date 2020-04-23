@@ -5,8 +5,8 @@ from subprocess import check_output
 import shlex
 
 
-#inputInis = ["configInis/backgrounds.ini", "configInis/data.ini"]
 inputInis = ["configInis/data.ini"]
+#inputInis = ["configInis/backgrounds.ini"]
 
 def haddOneSample(key, sampleType = "backgrounds"):
   outFileName = "smallified_%s.root" % key
@@ -22,7 +22,10 @@ def haddOneSample(key, sampleType = "backgrounds"):
 def haddOneIni(configFile):
   configDict = parseIni(configFile)
   for key in configDict.keys():
-    haddOneSample(key)
+    if "data" in configFile:
+      haddOneSample(key, "data")
+    else:
+      haddOneSample(key)
 
 if __name__ == "__main__":
   for ini in inputInis:
