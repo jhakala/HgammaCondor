@@ -14,6 +14,8 @@ parser.add_argument("-m", "--magicNumber", dest = "magicNumber",
 parser.add_argument("-x", "--cluster", dest = "cluster", 
                   type = str, required=True,
                   help = "the cluster you want to run on, either 'lpc' or 'brux'")
+parser.add_argument("-z", "--justCheck", dest = "justCheck", action="store_true", 
+                  help = "just check file integrity, do not process")
 args = parser.parse_args()
 
 
@@ -29,12 +31,21 @@ import datetime
 today = datetime.date.today()
 
 for dataset in configDict.keys():
-  outScript = open("condor-area/h_%s.sh" % dataset, "w")
+  if not args.justCheck:
+    scriptName = "condor-area/h_%s.sh" % dataset
+    jdlName = "condor-area/c_%s.jdl" % dataset
+  else:
+    scriptName = "condor-area/check_%s.sh" % dataset
+    jdlName = "condor-area/check_%s.jdl" % dataset
+  outScript = open(scriptName, "w")
   chmod(outScript.name, 0o744) 
-  outJdl = open("condor-area/c_%s.jdl" % dataset, "w")
+  outJdl = open(jdlName, "w")
   if args.magicNumber>1:
     outFileName = "smallified_%s_${1}.root" % dataset
-    outScript.write(lpcScript("python runSmallify.py -i %s -o %s -m %i -c %s -q ${1}" % (configDict[dataset], outFileName, args.magicNumber, args.cluster), outFileName))
+    if args.justCheck:
+      outScript.write(lpcScript("python runSmallify.py -z -i %s -o %s -m %i -c %s -q ${1}" % (configDict[dataset], outFileName, args.magicNumber, args.cluster), outFileName))
+    else:
+      outScript.write(lpcScript("python runSmallify.py -i %s -o %s -m %i -c %s -q ${1}" % (configDict[dataset], outFileName, args.magicNumber, args.cluster), outFileName))
     outJdl.write(queueJdl(outScript.name, args.magicNumber, True))
   elif args.magicNumber==1:
     outScript.write(simpleScript("python runSmallify.py %s smallified_%s.root" % (configDict[dataset], dataset), getcwd()))

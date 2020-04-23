@@ -12,3 +12,4 @@ docker_stderror
 test-scratch
 smallifyTarball.tar
 crab.log
+badLog*

@@ -16,6 +16,9 @@ parser.add_argument("-q", dest = "queueNumber",
                     help = "queue number", required=True)
 parser.add_argument("-c", dest = "cluster",
                     help = "cluster", required=True)
+
+parser.add_argument("-z", dest = "justCheck", action='store_true',
+                    help = "don't process, just check integrity", required=False)
 args = parser.parse_args()
 
 magicNumber = int(args.magicNumber)
@@ -72,13 +75,19 @@ badFiles = []
 for f in inFiles:
   fileOK = False
   checkFile = TFile.Open(f)
-  if "ntuplizer" in checkFile.GetListOfKeys():
-    if ("tree" in checkFile.Get("ntuplizer").GetListOfKeys()) and ("hCounter" in checkFile.Get("ntuplizer").GetListOfKeys()):
-      fileOK = True
-  if fileOK:
-    goodFiles.append(checkFile.GetName())
+  if not checkFile:
+    badFiles.append(f)
   else:
-    badFiles.append(checkFile.GetName())
+    if checkFile.IsZombie():
+      badFiles.append(checkFile.GetName())
+    else:
+      if "ntuplizer" in checkFile.GetListOfKeys():
+        if ("tree" in checkFile.Get("ntuplizer").GetListOfKeys()) and ("hCounter" in checkFile.Get("ntuplizer").GetListOfKeys()):
+          fileOK = True
+      if fileOK:
+        goodFiles.append(checkFile.GetName())
+      else:
+        badFiles.append(checkFile.GetName())
 
 print "found bad files:", badFiles
 
@@ -86,29 +95,30 @@ print "found bad files:", badFiles
 
 print "good inFiles:"
 pprint(goodFiles)
-for inFile in goodFiles:
-  chain.Add(inFile)
-print "TChain has NEntries: %i" % chain.GetEntries()
-compRet = gSystem.CompileMacro("smallify.C", "gOck")
-print "smallify.C compile return code:", compRet
-loadRet = gSystem.Load('smallify_C')
-print "smallify_C.so load return code:", loadRet
-gSystem.Load('smallify_C')
-smallifier = smallify(chain)
-smallifier.Loop(args.outputName)
-
-newHcounter = TH1I("hCounter", "Events counter", 5,0,5)
-for inFileName in goodFiles:
-  print "going back to collect hCounter from:"
-  print inFileName
-  inFile = TFile.Open(inFileName)
-  #print "file %s has %i events." % ( inFileName, inFile.Get("ntuplizer/hCounter").GetBinContent(1) )
-  newHcounter.SetBinContent(1, newHcounter.GetBinContent(1) + inFile.Get("ntuplizer/hCounter").GetBinContent(1))
-  #print " -->total = %i" % newHcounter.GetBinContent(1)
-outfile = TFile(args.outputName, "UPDATE")
-outfile.cd("ntuplizer")
-newHcounter.Write()
-outfile.Close()
+if not args.justCheck:
+  for inFile in goodFiles:
+    chain.Add(inFile)
+  print "TChain has NEntries: %i" % chain.GetEntries()
+  compRet = gSystem.CompileMacro("smallify.C", "gOck")
+  print "smallify.C compile return code:", compRet
+  loadRet = gSystem.Load('smallify_C')
+  print "smallify_C.so load return code:", loadRet
+  gSystem.Load('smallify_C')
+  smallifier = smallify(chain)
+  smallifier.Loop(args.outputName)
+  
+  newHcounter = TH1I("hCounter", "Events counter", 5,0,5)
+  for inFileName in goodFiles:
+    print "going back to collect hCounter from:"
+    print inFileName
+    inFile = TFile.Open(inFileName)
+    #print "file %s has %i events." % ( inFileName, inFile.Get("ntuplizer/hCounter").GetBinContent(1) )
+    newHcounter.SetBinContent(1, newHcounter.GetBinContent(1) + inFile.Get("ntuplizer/hCounter").GetBinContent(1))
+    #print " -->total = %i" % newHcounter.GetBinContent(1)
+  outfile = TFile(args.outputName, "UPDATE")
+  outfile.cd("ntuplizer")
+  newHcounter.Write()
+  outfile.Close()
 
 if len(badFiles) > 0:
   with open("badLog.txt", "w") as f:
