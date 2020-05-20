@@ -40,16 +40,16 @@ for dataset in configDict.keys():
   outScript = open(scriptName, "w")
   chmod(outScript.name, 0o744) 
   outJdl = open(jdlName, "w")
-  if args.magicNumber>1:
+  if args.magicNumber>0:
     outFileName = "smallified_%s_${1}.root" % dataset
     if args.justCheck:
       outScript.write(lpcScript("python runSmallify.py -z -i %s -o %s -m %i -c %s -q ${1}" % (configDict[dataset], outFileName, args.magicNumber, args.cluster), outFileName))
     else:
       outScript.write(lpcScript("python runSmallify.py -i %s -o %s -m %i -c %s -q ${1}" % (configDict[dataset], outFileName, args.magicNumber, args.cluster), outFileName))
     outJdl.write(queueJdl(outScript.name, args.magicNumber, True))
-  elif args.magicNumber==1:
-    outScript.write(simpleScript("python runSmallify.py %s smallified_%s.root" % (configDict[dataset], dataset), getcwd()))
-    outJdl.write(simpleJdl(outScript.name))
+#  elif args.magicNumber==1:
+#    outScript.write(simpleScript("python runSmallify.py %s smallified_%s.root" % (configDict[dataset], dataset), getcwd()))
+#    outJdl.write(simpleJdl(outScript.name))
   outJdl.close()
   outScript.close()
 

@@ -2,7 +2,6 @@ from sys import argv
 from os import listdir
 from os.path import isfile, join
 from pprint import pprint
-from ROOT import *
 from argparse import ArgumentParser
 
 parser = ArgumentParser()
@@ -24,6 +23,7 @@ args = parser.parse_args()
 magicNumber = int(args.magicNumber)
 queueNumber = int(args.queueNumber)
 
+from ROOT import *
 chain = TChain("ntuplizer/tree")
 inFiles = []
 

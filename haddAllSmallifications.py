@@ -5,11 +5,13 @@ from subprocess import check_output
 import shlex
 
 
-inputInis = ["configInis/data.ini"]
+#inputInis = ["configInis/data.ini"]
 #inputInis = ["configInis/backgrounds.ini"]
+inputInis = ["configInis/backgrounds.ini", "configInis/data.ini"]
 
 def haddOneSample(key, sampleType = "backgrounds"):
   outFileName = "smallified_%s.root" % key
+  #command = "hadd organize_smallifications/%s/%s" % (sampleType, outFileName)
   command = "hadd organize_smallifications/%s/%s" % (sampleType, outFileName)
   for fName in glob("smallified_%s_*.root"%key):
     command += " " + fName

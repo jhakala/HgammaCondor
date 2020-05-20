@@ -110,6 +110,22 @@ void smallify::Loop(std::string outputFileName) {
   fChain->SetBranchStatus("jetAK8_akx_probZcc"                   , 1);
   fChain->SetBranchStatus("jetAK8_akx_probZqq"                   , 1);
   fChain->SetBranchStatus("jetAK8_akx_probHbb"                   , 1);
+  fChain->SetBranchStatus("jetAK8_akxDec_H4qvsQCD", 1);
+  fChain->SetBranchStatus("jetAK8_akxDec_HbbvsQCD", 1);
+  fChain->SetBranchStatus("jetAK8_akxDec_WvsQCD",   1);
+  fChain->SetBranchStatus("jetAK8_akxDec_ZHbbvsQCD", 1);
+  fChain->SetBranchStatus("jetAK8_akxDec_ZHccvsQCD", 1);
+  fChain->SetBranchStatus("jetAK8_akxDec_ZbbvsQCD", 1);
+  fChain->SetBranchStatus("jetAK8_akxDec_ZvsQCD",   1);
+  fChain->SetBranchStatus("jetAK8_akxDec_bbvsLight", 1);
+  fChain->SetBranchStatus("jetAK8_akxDec_probHbb",  1);
+  fChain->SetBranchStatus("jetAK8_akxDec_probHcc",  1);
+  fChain->SetBranchStatus("jetAK8_akxDec_probHqqqq", 1);
+  fChain->SetBranchStatus("jetAK8_akxDec_probWcq",  1);
+  fChain->SetBranchStatus("jetAK8_akxDec_probWqq",  1);
+  fChain->SetBranchStatus("jetAK8_akxDec_probZbb",  1);
+  fChain->SetBranchStatus("jetAK8_akxDec_probZcc",  1);
+  fChain->SetBranchStatus("jetAK8_akxDec_probZqq",  1);
 
   fChain->SetBranchStatus("jetAK8_tau1"                  , 1);
   fChain->SetBranchStatus("jetAK8_tau2"                  , 1);

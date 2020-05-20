@@ -59,8 +59,8 @@ if [[ $? -ne 0 ]] ; then
 fi
 cd tarball-area
 source /cvmfs/cms.cern.ch/cmsset_default.sh
-scramv1 project CMSSW CMSSW_9_4_16
-pushd CMSSW_9_4_16/src
+scramv1 project CMSSW CMSSW_10_2_22
+pushd CMSSW_10_2_22/src
 eval `scramv1 runtime -sh`
 popd
 %s

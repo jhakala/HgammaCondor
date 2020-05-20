@@ -110,6 +110,22 @@ public :
    vector<float>   *jetAK8_akx_probZcc;
    vector<float>   *jetAK8_akx_probZqq;
    vector<float>   *jetAK8_akx_probHbb;
+   vector<float>   *jetAK8_akxDec_H4qvsQCD;
+   vector<float>   *jetAK8_akxDec_HbbvsQCD;
+   vector<float>   *jetAK8_akxDec_WvsQCD;
+   vector<float>   *jetAK8_akxDec_ZHbbvsQCD;
+   vector<float>   *jetAK8_akxDec_ZHccvsQCD;
+   vector<float>   *jetAK8_akxDec_ZbbvsQCD;
+   vector<float>   *jetAK8_akxDec_ZvsQCD;
+   vector<float>   *jetAK8_akxDec_bbvsLight;
+   vector<float>   *jetAK8_akxDec_probHbb;
+   vector<float>   *jetAK8_akxDec_probHcc;
+   vector<float>   *jetAK8_akxDec_probHqqqq;
+   vector<float>   *jetAK8_akxDec_probWcq;
+   vector<float>   *jetAK8_akxDec_probWqq;
+   vector<float>   *jetAK8_akxDec_probZbb;
+   vector<float>   *jetAK8_akxDec_probZcc;
+   vector<float>   *jetAK8_akxDec_probZqq;
    vector<float>   *jetAK8_tau1;
    vector<float>   *jetAK8_tau2;
    vector<float>   *jetAK8_tau3;
@@ -222,6 +238,22 @@ public :
    TBranch        *b_jetAK8_akx_probZcc;   //!
    TBranch        *b_jetAK8_akx_probZqq;   //!
    TBranch        *b_jetAK8_akx_probHbb;   //!
+   TBranch        *b_jetAK8_akxDec_H4qvsQCD;
+   TBranch        *b_jetAK8_akxDec_HbbvsQCD;
+   TBranch        *b_jetAK8_akxDec_WvsQCD;
+   TBranch        *b_jetAK8_akxDec_ZHbbvsQCD;
+   TBranch        *b_jetAK8_akxDec_ZHccvsQCD;
+   TBranch        *b_jetAK8_akxDec_ZbbvsQCD;
+   TBranch        *b_jetAK8_akxDec_ZvsQCD;
+   TBranch        *b_jetAK8_akxDec_bbvsLight;
+   TBranch        *b_jetAK8_akxDec_probHbb;
+   TBranch        *b_jetAK8_akxDec_probHcc;
+   TBranch        *b_jetAK8_akxDec_probHqqqq;
+   TBranch        *b_jetAK8_akxDec_probWcq;
+   TBranch        *b_jetAK8_akxDec_probWqq;
+   TBranch        *b_jetAK8_akxDec_probZbb;
+   TBranch        *b_jetAK8_akxDec_probZcc;
+   TBranch        *b_jetAK8_akxDec_probZqq;
    TBranch        *b_jetAK8_tau1;   //!
    TBranch        *b_jetAK8_tau2;   //!
    TBranch        *b_jetAK8_tau3;   //!
@@ -396,6 +428,22 @@ void smallify::Init(TTree *tree)
    jetAK8_akx_probZcc = 0;
    jetAK8_akx_probZqq = 0;
    jetAK8_akx_probHbb = 0;
+   jetAK8_akxDec_H4qvsQCD = 0;
+   jetAK8_akxDec_HbbvsQCD = 0;
+   jetAK8_akxDec_WvsQCD = 0;
+   jetAK8_akxDec_ZHbbvsQCD = 0;
+   jetAK8_akxDec_ZHccvsQCD = 0;
+   jetAK8_akxDec_ZbbvsQCD = 0;
+   jetAK8_akxDec_ZvsQCD = 0;
+   jetAK8_akxDec_bbvsLight = 0;
+   jetAK8_akxDec_probHbb = 0;
+   jetAK8_akxDec_probHcc = 0;
+   jetAK8_akxDec_probHqqqq = 0;
+   jetAK8_akxDec_probWcq = 0;
+   jetAK8_akxDec_probWqq = 0;
+   jetAK8_akxDec_probZbb = 0;
+   jetAK8_akxDec_probZcc = 0;
+   jetAK8_akxDec_probZqq = 0;
    jetAK8_tau1 = 0;
    jetAK8_tau2 = 0;
    jetAK8_tau3 = 0;
@@ -507,6 +555,22 @@ void smallify::Init(TTree *tree)
    fChain->SetBranchAddress("jetAK8_akx_probZcc", &jetAK8_akx_probZcc, &b_jetAK8_akx_probZcc);
    fChain->SetBranchAddress("jetAK8_akx_probZqq", &jetAK8_akx_probZqq, &b_jetAK8_akx_probZqq);
    fChain->SetBranchAddress("jetAK8_akx_probHbb", &jetAK8_akx_probHbb, &b_jetAK8_akx_probHbb);
+   fChain->SetBranchAddress("jetAK8_akxDec_H4qvsQCD"       , &jetAK8_akxDec_H4qvsQCD ,  &b_jetAK8_akxDec_H4qvsQCD  );
+   fChain->SetBranchAddress("jetAK8_akxDec_HbbvsQCD"       , &jetAK8_akxDec_HbbvsQCD ,  &b_jetAK8_akxDec_HbbvsQCD  );
+   fChain->SetBranchAddress("jetAK8_akxDec_WvsQCD"         , &jetAK8_akxDec_WvsQCD   ,  &b_jetAK8_akxDec_WvsQCD    );
+   fChain->SetBranchAddress("jetAK8_akxDec_ZHbbvsQCD"      , &jetAK8_akxDec_ZHbbvsQCD,  &b_jetAK8_akxDec_ZHbbvsQCD );
+   fChain->SetBranchAddress("jetAK8_akxDec_ZHccvsQCD"      , &jetAK8_akxDec_ZHccvsQCD,  &b_jetAK8_akxDec_ZHccvsQCD );
+   fChain->SetBranchAddress("jetAK8_akxDec_ZbbvsQCD"       , &jetAK8_akxDec_ZbbvsQCD ,  &b_jetAK8_akxDec_ZbbvsQCD  );
+   fChain->SetBranchAddress("jetAK8_akxDec_ZvsQCD"         , &jetAK8_akxDec_ZvsQCD   ,  &b_jetAK8_akxDec_ZvsQCD    );
+   fChain->SetBranchAddress("jetAK8_akxDec_bbvsLight"      , &jetAK8_akxDec_bbvsLight,  &b_jetAK8_akxDec_bbvsLight );
+   fChain->SetBranchAddress("jetAK8_akxDec_probHbb"        , &jetAK8_akxDec_probHbb  ,  &b_jetAK8_akxDec_probHbb   );
+   fChain->SetBranchAddress("jetAK8_akxDec_probHcc"        , &jetAK8_akxDec_probHcc  ,  &b_jetAK8_akxDec_probHcc   );
+   fChain->SetBranchAddress("jetAK8_akxDec_probHqqqq"      , &jetAK8_akxDec_probHqqqq,  &b_jetAK8_akxDec_probHqqqq );
+   fChain->SetBranchAddress("jetAK8_akxDec_probWcq"        , &jetAK8_akxDec_probWcq  ,  &b_jetAK8_akxDec_probWcq   );
+   fChain->SetBranchAddress("jetAK8_akxDec_probWqq"        , &jetAK8_akxDec_probWqq  ,  &b_jetAK8_akxDec_probWqq   );
+   fChain->SetBranchAddress("jetAK8_akxDec_probZbb"        , &jetAK8_akxDec_probZbb  ,  &b_jetAK8_akxDec_probZbb   );
+   fChain->SetBranchAddress("jetAK8_akxDec_probZcc"        , &jetAK8_akxDec_probZcc  ,  &b_jetAK8_akxDec_probZcc   );
+   fChain->SetBranchAddress("jetAK8_akxDec_probZqq"        , &jetAK8_akxDec_probZqq  ,  &b_jetAK8_akxDec_probZqq   );
    fChain->SetBranchAddress("jetAK8_tau1", &jetAK8_tau1, &b_jetAK8_tau1);
    fChain->SetBranchAddress("jetAK8_tau2", &jetAK8_tau2, &b_jetAK8_tau2);
    fChain->SetBranchAddress("jetAK8_tau3", &jetAK8_tau3, &b_jetAK8_tau3);
