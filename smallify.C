@@ -199,14 +199,18 @@ Int_t smallify::Cut(Long64_t entry) {
   phVec.SetPtEtaPhiE(0,0,0,0);
   jetVec.SetPtEtaPhiE(0,0,0,0);
   for(std::vector<float>::iterator it = ph_pt->begin(); it != ph_pt->end(); ++it) {
-    if (*it > 180                && 
-        ( (ph_mvaCat->at(iPh)==0 && ph_mvaVal->at(iPh)>0.27) ||  // barrel
-          (ph_mvaCat->at(iPh)==1 && ph_mvaVal->at(iPh)>0.14)     // endcap
-        )                        && 
-        ph_passEleVeto->at(iPh)  &&
-        std::abs(ph_eta->at(iPh)) < 2.4
+    // THIS IS MVA ID -- following Sebastian, move to cut-based id
+    //if (*it > 180                && 
+    //    ( (ph_mvaCat->at(iPh)==0 && ph_mvaVal->at(iPh)>0.27) ||  // barrel
+    //      (ph_mvaCat->at(iPh)==1 && ph_mvaVal->at(iPh)>0.14)     // endcap
+    //    )                        && 
+    //    ph_passEleVeto->at(iPh)  &&
+    //    std::abs(ph_eta->at(iPh)) < 2.4
 
-       )  {
+    //   )  {
+      
+    // LOOSE CUT-BASED ID
+    if (*it > 180 && (ph_passLooseId->at(iPh) && ph_passEleVeto->at(iPh) ) ) {
       passPh = true;
       phVec.SetPtEtaPhiE(ph_pt->at(iPh), ph_eta->at(iPh), ph_phi->at(iPh), ph_e->at(iPh));
 
@@ -227,6 +231,7 @@ Int_t smallify::Cut(Long64_t entry) {
       }
 
     }
+    // }
     ++iPh;
   }
   if (  passPh && passJet ) return 1;
