@@ -46,26 +46,26 @@ def lpcEosInputs(inDirName):
     iFile += 1
 
 
-def bruxIsilonInputs(inDirName):
-  isilonList = listdir(inDirName)
-  
-  print "doing round-robin inputs."
-  iFile = 0
-  for f in isilonList:
-    if (iFile+queueNumber) % magicNumber == 0:
-      if isfile(join(inDirName, f)):
-        inFiles.append(join(inDirName, f))
-        print "   > processing ", f
-      else:
-        print "   > ignoring directory ", f
-    else:
-      print "   > skipping", f
-    iFile += 1
+#def bruxIsilonInputs(inDirName):
+#  isilonList = listdir(inDirName)
+#  
+#  print "doing round-robin inputs."
+#  iFile = 0
+#  for f in isilonList:
+#    if (iFile+queueNumber) % magicNumber == 0:
+#      if isfile(join(inDirName, f)):
+#        inFiles.append(join(inDirName, f))
+#        print "   > processing ", f
+#      else:
+#        print "   > ignoring directory ", f
+#    else:
+#      print "   > skipping", f
+#    iFile += 1
 
 if args.cluster == "lpc":
   lpcEosInputs(args.inDirName)
-elif args.cluster == "brux":
-  bruxIsilonInputs(args.inDirName)
+#elif args.cluster == "brux":
+#  bruxIsilonInputs(args.inDirName)
 else:
   print "invalid cluster"
   exit(1)
