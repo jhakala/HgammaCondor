@@ -28,6 +28,8 @@ transfer_input_files = smallifyTarball.tar
 
   output+="""
 arguments = $(Process)
++REQUIRED_OS="rhel7"
++DesiredOS = REQUIRED_OS 
  
 Output = condorLogs/log.{1}.$(Cluster).$(Process).stdout
 Error = condorLogs/log.{1}.$(Cluster).$(Process).stderr
@@ -53,6 +55,7 @@ if [[ $# -ne 1 ]] ; then
     exit 1
 fi
 cd ${_CONDOR_SCRATCH_DIR}
+echo "working in condor scratch dir: $_CONDOR_SCRATCH_DIR"
 tar -xvf smallifyTarball.tar
 if [[ $? -ne 0 ]] ; then
     exit 1
@@ -67,11 +70,14 @@ popd
 if [[ $? -ne 0 ]] ; then
     exit 1
 fi
-mv %s ${_CONDOR_SCRATCH_DIR}
+if [ -f "%s" ]; then
+  mv %s ${_CONDOR_SCRATCH_DIR}
+fi
 if [ -f "badLog.txt" ]; then
   mv badLog.txt ${_CONDOR_SCRATCH_DIR}/badLog-%s.txt
+  mv missingLog.txt ${_CONDOR_SCRATCH_DIR}/badLog-%s.txt
 fi
 cd ${_CONDOR_SCRATCH_DIR}
 rm -rf tarball-area
 rm -f smallifyTarball.tar
-echo done""" % ( incantation, outFileName, outFileName)
+echo done""" % ( incantation, outFileName, outFileName, outFileName, outFileName)

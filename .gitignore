@@ -6,7 +6,6 @@ c*.jdl
 h*.sh
 sm*.sh
 *.pyc
-condorLogs
 old/*
 docker_stderror
 test-scratch
