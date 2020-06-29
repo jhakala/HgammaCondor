@@ -16,31 +16,10 @@ void smallify::Loop(std::string outputFileName) {
 //    jentry for TChain::GetEntry
   fChain->SetBranchStatus("*",0);  // disable all branches
   fChain->SetBranchStatus("HLT_isFired"                  , 1);  
-
-
-
-
-
-
-
   fChain->SetBranchStatus("jetAK8_IDLoose"               , 1);
   fChain->SetBranchStatus("ph_mvaVal"                    , 1);
   fChain->SetBranchStatus("ph_mvaCat"                    , 1);
   fChain->SetBranchStatus("ph_passEleVeto"               , 1);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   fChain->SetBranchStatus("ph_N"                         , 1);
   fChain->SetBranchStatus("ph_pdgId"                     , 1);
   fChain->SetBranchStatus("ph_charge"                    , 1);
@@ -64,22 +43,6 @@ void smallify::Loop(std::string outputFileName) {
   fChain->SetBranchStatus("ph_mvaVal"                    , 1);
   fChain->SetBranchStatus("ph_mvaCat"                    , 1);
   fChain->SetBranchStatus("rho"                          , 1);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   fChain->SetBranchStatus("jetAK8_N"                     , 1);
   fChain->SetBranchStatus("jetAK8_pt"                    , 1);
   fChain->SetBranchStatus("jetAK8_eta"                   , 1);
@@ -130,25 +93,11 @@ void smallify::Loop(std::string outputFileName) {
   fChain->SetBranchStatus("jetAK8_tau1"                  , 1);
   fChain->SetBranchStatus("jetAK8_tau2"                  , 1);
   fChain->SetBranchStatus("jetAK8_tau3"                  , 1);
-
-
-
-
-
   fChain->SetBranchStatus("jetAK8_softdrop_mass"         , 1);
   fChain->SetBranchStatus("jetAK8_softdrop_massCorr"     , 1);
   fChain->SetBranchStatus("jetAK8_softdrop_jec"          , 1);
   fChain->SetBranchStatus("jetAK8_softdrop_jecUp"          , 1);
   fChain->SetBranchStatus("jetAK8_softdrop_jecDown"          , 1);
-
-
-
-
-
-
-
-
-
   fChain->SetBranchStatus("EVENT_event"                  , 1);
   fChain->SetBranchStatus("EVENT_run"                    , 1);
   fChain->SetBranchStatus("EVENT_lumiBlock"              , 1);
