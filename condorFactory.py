@@ -66,6 +66,7 @@ scramv1 project CMSSW CMSSW_10_2_22
 pushd CMSSW_10_2_22/src
 eval `scramv1 runtime -sh`
 popd
+export XrdSecGSISRVNAMES=cmseos.fnal.gov
 %s
 if [[ $? -ne 0 ]] ; then
     exit 1
@@ -75,7 +76,9 @@ if [ -f "%s" ]; then
 fi
 if [ -f "badLog.txt" ]; then
   mv badLog.txt ${_CONDOR_SCRATCH_DIR}/badLog-%s.txt
-  mv missingLog.txt ${_CONDOR_SCRATCH_DIR}/badLog-%s.txt
+fi
+if [ -f "missingLog.txt" ]; then
+  mv missingLog.txt ${_CONDOR_SCRATCH_DIR}/missingLog-%s.txt
 fi
 cd ${_CONDOR_SCRATCH_DIR}
 rm -rf tarball-area

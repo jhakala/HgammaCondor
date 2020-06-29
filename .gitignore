@@ -12,3 +12,4 @@ test-scratch
 smallifyTarball.tar
 crab.log
 badLog*
+missingLog*

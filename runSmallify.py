@@ -1,13 +1,6 @@
-from commands import getoutput
-
-def eosls(directory):
-  command = "xrdfs root://cmsxrootd.fnal.gov ls %s" % directory
-  return getoutput(command).splitlines()
-
 def lpcEosInputs(inDirName):
-  from subprocess import check_output
-  import shlex
-  eoslist = eosls(inDirName)
+  from eospy import eosls
+  eoslist = eosls(inDirName, True)
   inFiles = []
   allFiles
   
@@ -16,13 +9,13 @@ def lpcEosInputs(inDirName):
   for f in eoslist:
     if (iFile+queueNumber) % magicNumber == 0:
       if ".root" in f[-5:]:
-        inFiles.append("root://cmsxrootd.fnal.gov//" + join(inDirName, f))
-        allFiles.append("root://cmsxrootd.fnal.gov//" + join(inDirName, f))
+        inFiles.append("root://cmseos.fnal.gov//" + join(inDirName, f))
+        allFiles.append("root://cmseos.fnal.gov//" + join(inDirName, f))
         print "   > processing ", f
       else:
         print "   > skipping ", f, "since it is probably a log dir and not a .root file"
     else:
-      allFiles.append("root://cmsxrootd.fnal.gov//" + join(inDirName, f))
+      allFiles.append("root://cmseos.fnal.gov//" + join(inDirName, f))
       print "   > skipping", f
     iFile += 1
   return inFiles, allFiles
@@ -158,8 +151,9 @@ if __name__ == "__main__":
     newHcounter.Write()
     outfile.Close()
   
-  if len(badFiles) > 0:
+  if len(missingFiles) > 0:
     with open("missingLog.txt", "w") as f:
       f.write(str(missingFiles))
+  if len(badFiles) > 0:
     with open("badLog.txt", "w") as f:
       f.write(str(badFiles))
