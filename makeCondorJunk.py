@@ -16,6 +16,8 @@ parser.add_argument("-x", "--cluster", dest = "cluster",
                   help = "the cluster you want to run on, either 'lpc' or 'brux'")
 parser.add_argument("-z", "--justCheck", dest = "justCheck", action="store_true", 
                   help = "just check file integrity, do not process")
+parser.add_argument("-u", "--cleanup", dest = "cleanup", action="store_true", 
+                  help = "clean out old condor-area stuff before making new")
 args = parser.parse_args()
 
 
@@ -44,13 +46,14 @@ if args.doDirSplitting:
 import datetime
 today = datetime.date.today()
 
-import glob, os
-
-print "cleaning up..."
-filelist = glob.glob(os.path.join("condor-area/*"))
-for f in filelist:
-    os.remove(f)
-    print " > cleaned up", f
+if args.cleanup:
+  import glob, os
+  
+  print "cleaning up..."
+  filelist = glob.glob(os.path.join("condor-area/*"))
+  for f in filelist:
+      os.remove(f)
+      print " > cleaned up", f
     
 print "\n---------\n"
 print "making new scripts and jdls..."

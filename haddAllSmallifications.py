@@ -7,7 +7,7 @@ import shlex
 
 #inputInis = ["configInis/data.ini"]
 #inputInis = ["configInis/backgrounds.ini"]
-inputInis = ["configInis/backgrounds.ini", "configInis/data.ini"]
+inputInis = ["configInis/backgrounds2018.ini", "configInis/data2018.ini"]
 
 def haddOneSample(key, sampleType = "backgrounds"):
   outFileName = "smallified_%s.root" % key
