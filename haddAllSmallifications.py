@@ -2,6 +2,7 @@ from parseConfigIni import parseIni
 from sys import argv
 from glob import glob
 from subprocess import check_output
+import os
 import shlex
 
 
@@ -12,7 +13,10 @@ inputInis = ["configInis/backgrounds2018.ini", "configInis/data2018.ini"]
 def haddOneSample(key, sampleType = "backgrounds"):
   outFileName = "smallified_%s.root" % key
   #command = "hadd organize_smallifications/%s/%s" % (sampleType, outFileName)
-  command = "hadd organize_smallifications/%s/%s" % (sampleType, outFileName)
+  directory = "organize_smallifications/%s" % sampleType
+  if not os.path.exists(directory):
+    os.makedirs(directory)
+  command = "hadd %s/%s" % (directory, outFileName)
   for fName in glob("smallified_%s_*.root"%key):
     command += " " + fName
   print "\n-------------------------------------" 
