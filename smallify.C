@@ -166,8 +166,8 @@ Int_t smallify::Cut(Long64_t entry) {
       iJet = 0;
       for(std::vector<float>::iterator jt = jetAK8_pt->begin(); jt != jetAK8_pt->end(); ++jt) {
         if ( *jt > 200                             && 
-            jetAK8_IDLoose->at(iJet)   //            &&
-            //jetAK8_pruned_massCorr->at(iJet) > 30 
+            jetAK8_IDLoose->at(iJet)  &&
+            jetAK8_softdrop_massCorr->at(iJet) > 30 
            ) {
           passJet = true;
           jetVec.SetPtEtaPhiE(jetAK8_pt->at(iJet), jetAK8_eta->at(iJet), jetAK8_phi->at(iJet), jetAK8_e->at(iJet));
