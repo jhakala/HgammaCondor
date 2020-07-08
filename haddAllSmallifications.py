@@ -8,14 +8,14 @@ import shlex
 
 #inputInis = ["configInis/data.ini"]
 #inputInis = ["configInis/backgrounds.ini"]
-inputInis = ["configInis/backgrounds2018.ini", "configInis/data2018.ini"]
+inputInis = ["configInis/backgrounds2017.ini", "configInis/data2017.ini", "configInis/backgrounds2018.ini", "configInis/data2018.ini"]
 dataDone = False
 
 def haddFiles(files, directory, outFileName, doIt = True):
 
   if not os.path.exists(directory):
     os.makedirs(directory)
-  command = "hadd %s/%s" % (directory, outFileName)
+  command = "hadd -f %s/%s" % (directory, outFileName)
   for fName in files:
     command += " " + fName
   print "\n-------------------------------------" 
@@ -28,7 +28,9 @@ def haddAllData(year, dataDone):
   if not dataDone:
     outFileName = "smallified_data%i.root" % year
     directory = "organize_smallifications%i/data" % year
-    fNames = glob("smallified%i_data%i*.root"%(year, year))
+    # smallified2018_data2018D.3_0.root
+    fNames = glob("smallified%i_data*%i*.root"%(year, year))
+    print fNames
     haddFiles(fNames, directory, outFileName)
 
 def haddOneSample(key, year, sampleType = "backgrounds"):
