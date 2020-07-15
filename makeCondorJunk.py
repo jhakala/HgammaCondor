@@ -32,8 +32,10 @@ if "2018" in args.configFile:
   year = 2018
 elif "2017" in args.configFile:
   year = 2017
+elif "2016" in args.configFile:
+  year = 2016
 else:
-  print "bad configFile. it should have a name with '2017' or '2018' in it."
+  print "bad configFile. it should have a name with '2016', '2017', or '2018' in it."
   # this is here to force you to organize the names correctly.
   # the only thing it does in the code is to pass a year to runSmallify when runSmallify is used for the 'justCheck' step
   exit(1)

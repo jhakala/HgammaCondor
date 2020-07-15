@@ -66,8 +66,8 @@ if __name__ == "__main__":
                       help = "if doing -z, then a year is required, either 2017 or 2018", required=False)
   args = parser.parse_args()
   
-  if args.justCheck and not (args.year in [2017, 2018]):
-    print "invalid year selection for justCheck -- need to add '-y 2017' or '-y 2018'"
+  if args.justCheck and not (args.year in [2016, 2017, 2018]):
+    print "invalid year selection for justCheck -- need to add '-y 2016', '-y 2017', or '-y 2018'"
     exit(1)
 
   magicNumber = int(args.magicNumber)
