@@ -1,23 +1,28 @@
 def lpcEosInputs(inDirName):
   from eospy import eosls
-  eoslist = eosls(inDirName, True)
   inFiles = []
-  allFiles
+  allFiles = []
   
-  print "doing round-robin inputs."
-  iFile = 0
-  for f in eoslist:
-    if (iFile+queueNumber) % magicNumber == 0:
-      if ".root" in f[-5:]:
-        inFiles.append("root://cmseos.fnal.gov//" + join(inDirName, f))
-        allFiles.append("root://cmseos.fnal.gov//" + join(inDirName, f))
-        print "   > processing ", f
+  if ".root" in inDirName:
+    print "input 'dir' was actually just one file -- adding this as an input"
+    inFiles.append( "root://cmseos.fnal.gov/" + inDirName)
+    allFiles.append("root://cmseos.fnal.gov/" + inDirName)
+  else:
+    eoslist = eosls(inDirName, True)
+    print "doing round-robin inputs."
+    iFile = 0
+    for f in eoslist:
+      if (iFile+queueNumber) % magicNumber == 0:
+        if ".root" in f[-5:]:
+          inFiles.append("root://cmseos.fnal.gov//" + join(inDirName, f))
+          allFiles.append("root://cmseos.fnal.gov//" + join(inDirName, f))
+          print "   > processing ", f
+        else:
+          print "   > skipping ", f, "since it is probably a log dir and not a .root file"
       else:
-        print "   > skipping ", f, "since it is probably a log dir and not a .root file"
-    else:
-      allFiles.append("root://cmseos.fnal.gov//" + join(inDirName, f))
-      print "   > skipping", f
-    iFile += 1
+        allFiles.append("root://cmseos.fnal.gov//" + join(inDirName, f))
+        print "   > skipping", f
+      iFile += 1
   return inFiles, allFiles
 
 def findMatchingJdl(year, inDirName):
@@ -105,6 +110,7 @@ if __name__ == "__main__":
   badFiles = []
   for f in inputs:
     fileOK = False
+    print "TFile.Open(", f, ")"
     checkFile = TFile.Open(f)
     if not checkFile:
       badFiles.append(f)
