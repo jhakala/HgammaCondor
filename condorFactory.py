@@ -58,7 +58,7 @@ if [[ $# -ne 1 ]] ; then
 fi
 cd ${_CONDOR_SCRATCH_DIR}
 echo "working in condor scratch dir: $_CONDOR_SCRATCH_DIR"
-tar -xvf smallifyTarball.tar
+tar -xf smallifyTarball.tar
 if [[ $? -ne 0 ]] ; then
     exit 1
 fi

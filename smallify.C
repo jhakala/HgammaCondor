@@ -112,14 +112,16 @@ void smallify::Loop(std::string outputFileName) {
   dir->cd();
   TTree* skimTree = fChain->CloneTree(0);
 
+  long long int counter = 0;
   for (Long64_t jentry=0; jentry<nentries;++jentry) {
     if (stopAfter==jentry) break;
     Long64_t ientry = LoadTree(jentry);
     if (ientry < 0) break;
     nb = fChain->GetEntry(jentry);  nbytes += nb;
+    counter = jentry+1;
     if (jentry%25000 == 0) {
       cout.flush();
-      cout << fixed << setw(4) << setprecision(2) << (float(jentry)/float(nentries))*100 << "% done: Scanned " << jentry << " events." << '\r';
+      cout << fixed << setw(4) << setprecision(2) << (float(jentry)/float(nentries))*100 << "% done: Scanned " << counter << " events." << '\r';
     }
     if (useTriggerInfo) {
       passTrig = false;
@@ -134,6 +136,7 @@ void smallify::Loop(std::string outputFileName) {
     if (Cut(ientry) < 0) continue;
     skimTree->Fill();
   }
+  cout << "100% done! Scanned " << counter << " events.    " << std::endl;
   skimFile->Write();
   skimFile->Close();
 }
